@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--<com.ventilator.view.GifView-->
+    <!--android:id="@+id/giv_gif"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="260dp"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:adjustViewBounds="true"-->
+    <!--android:scaleType="fitXY" />-->
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/giv_gif"
+        android:layout_width="wrap_content"
+        android:layout_height="260dp"
+        android:scaleType="fitXY" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="60dp"
+        android:layout_weight="1"
+        android:background="#082045"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/spacing_normal"
+        android:paddingLeft="@dimen/spacing_normal"
+        android:paddingRight="0dp"
+        android:paddingTop="@dimen/spacing_normal">
+
+
+        <com.ventilator.view.MyNoScrollViewPager
+            android:id="@+id/fr_main"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/shape_show_test_data"
+            android:overScrollMode="never"
+            android:scrollbars="none"></com.ventilator.view.MyNoScrollViewPager>
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <RadioGroup
+                android:id="@+id/ll"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/spacing_normal"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/rbn_test_cgq"
+                    style="@style/RadioButtonTest"
+                    android:checked="true"
+                    android:text="传感器" />
+
+                <RadioButton
+                    android:id="@+id/rbn_test_fs"
+                    style="@style/RadioButtonTest"
+                    android:text="风速" />
+
+                <RadioButton
+                    android:id="@+id/rbn_test_dj"
+                    style="@style/RadioButtonTest"
+                    android:text="电机" />
+
+                <RadioButton
+                    android:id="@+id/rbn_test_ylcj"
+                    style="@style/RadioButtonTest"
+                    android:text="压力采集" />
+
+                <RadioButton
+                    android:id="@+id/rbn_test_gk"
+                    style="@style/RadioButtonTest"
+                    android:text="工况" />
+
+                <RadioButton
+                    android:id="@+id/rbn_test_bk"
+                    style="@style/RadioButtonTest"
+                    android:text="标况" />
+
+
+            </RadioGroup>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/spacing_normal"
+                android:orientation="vertical">
+
+                <CheckBox
+                    android:id="@+id/cb_testdj_lock"
+                    style="@style/CheckBoxdjTest"
+                    android:text="锁定电机" />
+
+                <CheckBox
+                    android:id="@+id/cb_test_lock"
+                    style="@style/CheckBoxTest"
+                    android:layout_marginTop="@dimen/spacing_tiny"
+                    android:text="锁定" />
+
+                <Button
+                    android:id="@+id/btn_test_save"
+                    style="@style/CheckBoxTest"
+                    android:layout_marginTop="@dimen/spacing_tiny"
+                    android:background="@drawable/selector_bg_test_button"
+                    android:text="保存" />
+            </LinearLayout>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

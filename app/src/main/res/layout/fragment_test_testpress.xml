@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#c1d8fd"
+        android:gravity="center_horizontal"
+
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/x10"
+        android:paddingLeft="@dimen/x5"
+        android:paddingRight="@dimen/x5"
+        android:paddingTop="@dimen/x15">
+
+        <TextView
+            android:id="@+id/tv_tittle_testshow_1"
+            style="@style/TextView_style0"
+            android:layout_marginLeft="@dimen/x5"
+            android:text="@string/test_press"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/bg_divider"    android:showDividers="middle"
+            android:orientation="horizontal">
+
+            <TextView
+
+                style="@style/TextView_style2"
+                android:layout_width="0dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_weight="1.5"
+
+                android:paddingBottom="@dimen/x5"
+                android:paddingTop="@dimen/x5"
+                android:background="@color/cadetblue"
+                android:text=""
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_testpress_title_jy"
+                style="@style/TextView_style2"
+                android:layout_width="0dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_weight="3"
+                android:background="@color/cadetblue"
+                android:clickable="true"
+                android:enabled="true"
+                android:paddingBottom="@dimen/x5"
+                android:paddingTop="@dimen/x5"
+                android:text="静    压"
+                android:textColor="@drawable/selector_item_text_color"
+                android:textSize="14sp" />
+
+
+            <TextView
+                android:id="@+id/tv_testpress_title_cy"
+                style="@style/TextView_style2"
+                android:layout_width="0dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_weight="3"
+                android:background="@color/cadetblue"
+                android:clickable="true"
+                android:enabled="true"
+                android:paddingBottom="@dimen/x5"
+                android:paddingTop="@dimen/x5"
+                android:text="差    压"
+                android:textColor="@drawable/selector_item_text_color"
+                android:textSize="14sp" />
+
+            <ImageView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/cadetblue"
+                android:layout_weight="1" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/bg_divider"    android:showDividers="middle"
+            android:orientation="horizontal">
+
+            <TextView
+
+                style="@style/TextView_style2"
+                android:layout_width="0dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_weight="1.5"
+                android:background="@color/cadetblue"
+                android:paddingBottom="@dimen/x5"
+                android:paddingTop="@dimen/x5"
+                android:text="实 时 值"
+                android:textColor="#353535"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_testpress_cur_jy"
+                style="@style/TextView_style2"
+                android:layout_width="0dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_weight="3"
+                android:background="@color/white_hint"
+                android:clickable="true"
+                android:enabled="true"
+                android:paddingBottom="@dimen/x5"
+                android:paddingTop="@dimen/x5"
+                android:text=""
+                android:textColor="@drawable/selector_item_text_color"
+                android:textSize="14sp" />
+
+
+            <TextView
+                android:id="@+id/tv_testpress_cur_cy"
+                style="@style/TextView_style2"
+                android:layout_width="0dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_weight="3"
+                android:background="@color/white_hint"
+                android:clickable="true"
+                android:enabled="true"
+                android:paddingBottom="@dimen/x5"
+                android:paddingTop="@dimen/x5"
+                android:text=" "
+                android:textColor="@drawable/selector_item_text_color"
+                android:textSize="14sp" />
+
+            <ImageView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/bg_divider"    android:showDividers="middle"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextView_style2"
+                android:layout_width="0dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_weight="1.5"
+                android:background="@color/cadetblue"
+                android:paddingBottom="@dimen/x5"
+                android:paddingTop="@dimen/x5"
+                android:text="平 均 值"
+                android:textColor="#353535"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_testpress_ave_jy"
+                style="@style/TextView_style2"
+                android:layout_width="0dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_weight="3"
+                android:background="@color/white_hint"
+                android:clickable="true"
+                android:enabled="true"
+                android:paddingBottom="@dimen/x5"
+                android:paddingTop="@dimen/x5"
+                android:text=""
+                android:textColor="@drawable/selector_item_text_color"
+                android:textSize="14sp" />
+
+
+            <TextView
+                android:id="@+id/tv_testpress_ave_cy"
+                style="@style/TextView_style2"
+                android:layout_width="0dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_weight="3"
+                android:background="@color/white_hint"
+                android:clickable="true"
+                android:enabled="true"
+                android:paddingBottom="@dimen/x5"
+                android:paddingTop="@dimen/x5"
+                android:text=" "
+                android:textColor="@drawable/selector_item_text_color"
+                android:textSize="14sp" />
+
+            <ImageView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="400dp"
+            android:layout_height="220dp"
+
+            android:orientation="horizontal">
+
+            <com.ventilator.view.MyScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#cfd1f1">
+
+                <com.ventilator.view.MyListView
+                    android:id="@+id/lv_testpress"
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+
+                    android:layout_marginTop="@dimen/x5"
+                    android:background="@drawable/lv_testpress_shape"
+                    android:padding="1dp">
+
+                </com.ventilator.view.MyListView>
+            </com.ventilator.view.MyScrollView>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_testpress"
+                android:layout_width="177dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/bt_testpress_shape"
+                android:gravity="center"
+                android:text="数据采集"
+                android:textColor="#ffffff"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

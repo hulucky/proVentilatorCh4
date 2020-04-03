@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="left"
+            android:paddingLeft="@dimen/x5"
+            android:paddingRight="@dimen/x5"
+            android:paddingTop="@dimen/x5"
+            android:paddingBottom="@dimen/x5"
+            >
+            <TextView
+                android:id="@+id/tv_tittle_testshow_1"
+                style="@style/TextView_style0"
+                android:layout_marginLeft="@dimen/x5"
+                android:text="@string/task_inf"
+                android:gravity="left"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_tittle_testshow_2"
+                style="@style/TextView_style0"
+                android:layout_marginLeft="@dimen/x5"
+                android:text="@string/task_inf"
+                android:textSize="16sp" />
+
+
+
+
+
+        </LinearLayout>
+
+
+
+</LinearLayout>

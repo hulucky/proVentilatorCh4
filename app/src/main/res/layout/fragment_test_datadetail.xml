@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/sc_datadetail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/x30"
+            android:paddingLeft="@dimen/x5"
+            android:paddingRight="@dimen/x5"
+            android:paddingTop="@dimen/x15">
+
+            <TextView
+                android:id="@+id/tv_tittle_testdatadetail_1"
+                style="@style/TextView_style0"
+                android:layout_marginLeft="@dimen/x5"
+                android:text="预设参数"
+                android:textSize="16sp" />
+
+            <com.ventilator.view.MyListView
+                android:id="@+id/lv_testdatadetail_param"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x10"
+                android:layout_marginRight="@dimen/x10"
+                android:layout_marginTop="@dimen/x5"
+                android:background="@drawable/shape_bg_listview"
+                android:padding="1dp"></com.ventilator.view.MyListView>
+
+
+            <TextView
+                android:id="@+id/tv_tittle_testdatadetail_2"
+                style="@style/TextView_style0"
+                android:layout_marginLeft="@dimen/x5"
+                android:layout_marginTop="@dimen/x15"
+                android:text="测量值"
+                android:textSize="16sp" />
+
+            <com.ventilator.view.MyListView
+                android:id="@+id/lv_testdatadetail_test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x10"
+                android:layout_marginRight="@dimen/x10"
+                android:layout_marginTop="@dimen/x5"
+                android:background="@drawable/shape_bg_listview"
+                android:padding="1dp"></com.ventilator.view.MyListView>
+
+            <TextView
+                android:id="@+id/tv_tittle_testdatadetail_3"
+                style="@style/TextView_style0"
+                android:layout_marginLeft="@dimen/x5"
+                android:layout_marginTop="@dimen/x15"
+                android:text="计算值"
+                android:textSize="16sp" />
+
+            <com.ventilator.view.MyListView
+                android:id="@+id/lv_testdatadetail_calculator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x10"
+                android:layout_marginRight="@dimen/x10"
+                android:layout_marginTop="@dimen/x5"
+                android:background="@drawable/shape_bg_listview"
+                android:padding="1dp"></com.ventilator.view.MyListView>
+
+            <TextView
+                android:id="@+id/tv_tittle_testdatadetail_4"
+                style="@style/TextView_style0"
+                android:layout_marginLeft="@dimen/x5"
+                android:layout_marginTop="@dimen/x15"
+                android:text="工况换算系数"
+                android:textSize="16sp" />
+
+            <com.ventilator.view.MyListView
+                android:id="@+id/lv_testdatadetail_gk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x10"
+                android:layout_marginRight="@dimen/x10"
+                android:layout_marginTop="@dimen/x5"
+                android:background="@drawable/shape_bg_listview"
+                android:padding="1dp"></com.ventilator.view.MyListView>
+
+            <TextView
+                android:id="@+id/tv_tittle_testdatadetail_5"
+                style="@style/TextView_style0"
+                android:layout_marginLeft="@dimen/x5"
+                android:layout_marginTop="@dimen/x15"
+                android:text="换算后数据"
+                android:textSize="16sp" />
+
+            <com.ventilator.view.MyListView
+                android:id="@+id/lv_testdatadetail_hsh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x10"
+                android:layout_marginRight="@dimen/x10"
+                android:layout_marginTop="@dimen/x5"
+                android:background="@drawable/shape_bg_listview"
+                android:padding="1dp"></com.ventilator.view.MyListView>
+
+            <TextView
+                android:id="@+id/tv_tittle_testdatadetail_6"
+                style="@style/TextView_style0"
+                android:layout_marginLeft="@dimen/x5"
+                android:layout_marginTop="@dimen/x15"
+                android:text="@string/task_dj"
+                android:textSize="16sp" />
+
+            <com.ventilator.view.MyListView
+                android:id="@+id/lv_testdatadetail_dj1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x10"
+                android:layout_marginRight="@dimen/x10"
+                android:layout_marginTop="@dimen/x5"
+                android:background="@drawable/shape_bg_listview"
+                android:padding="1dp"></com.ventilator.view.MyListView>
+
+            <TextView
+                android:id="@+id/tv_tittle_testdatadetail_7"
+                style="@style/TextView_style0"
+                android:layout_marginLeft="@dimen/x5"
+                android:layout_marginTop="@dimen/x15"
+                android:text="电机2参数"
+                android:textSize="16sp" />
+
+            <com.ventilator.view.MyListView
+                android:id="@+id/lv_testdatadetail_dj2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x10"
+                android:layout_marginRight="@dimen/x10"
+                android:layout_marginTop="@dimen/x5"
+                android:background="@drawable/shape_bg_listview"
+                android:padding="1dp"></com.ventilator.view.MyListView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

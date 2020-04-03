@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/x5"
+            android:paddingLeft="@dimen/x5"
+            android:paddingRight="@dimen/x5"
+            android:paddingTop="@dimen/x5">
+
+            <TextView
+                android:id="@+id/tv_tittle_testshow_1"
+                style="@style/TextView_style0"
+                android:layout_marginLeft="@dimen/x5"
+                android:text="@string/task_inf"
+                android:textSize="16sp" />
+
+            <com.ventilator.view.MyListView
+                android:id="@+id/lv_testshow_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x10"
+                android:layout_marginRight="@dimen/x10"
+                android:layout_marginTop="@dimen/x5"
+                android:background="@drawable/shape_bg_listview"
+                android:padding="1dp"></com.ventilator.view.MyListView>
+
+
+            <TextView
+                android:id="@+id/tv_tittle_testshow_2"
+                style="@style/TextView_style0"
+                android:layout_marginLeft="@dimen/x5"
+                android:layout_marginTop="@dimen/x5"
+                android:text="@string/task_dj"
+                android:textSize="16sp" />
+
+            <com.ventilator.view.MyListView
+                android:id="@+id/lv_testshow_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x10"
+                android:layout_marginRight="@dimen/x10"
+                android:layout_marginTop="@dimen/x5"
+                android:background="@drawable/shape_bg_listview"
+                android:padding="1dp"></com.ventilator.view.MyListView>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

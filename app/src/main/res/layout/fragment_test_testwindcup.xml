@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="#c1d8fb">
+
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <TextView
+                android:id="@+id/tvpjfsname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"     android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:text="平均风速："
+
+                android:textSize="18sp"/>
+            <TextView
+                android:id="@+id/tv_testwindspeed_pjfs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"     android:layout_marginTop="15dp"
+           android:layout_marginLeft="120dp"
+                android:textSize="18sp"
+                android:text="   m/s"/>
+            <ImageView
+                android:id="@+id/img_fbshow"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="320dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/fbon"/>
+
+        </RelativeLayout>
+            <LinearLayout
+                android:id="@+id/linearLayoutfb1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.sensor.view.SensorView
+
+                    android:id="@+id/fb_test_1"
+
+
+                    style="@style/fbicon"
+                    app:CheckConnect="true"
+                    app:CheckTime="5000"
+                    app:DrawModel="variable"
+                    app:SensorType="FENG_BEI" />
+
+                <TextView
+
+                    android:text=" "
+
+                    style="@style/fbspan" />
+
+                <com.sensor.view.SensorView
+
+                    android:id="@+id/fb_test_2"
+
+
+                    style="@style/fbicon"
+                    app:CheckConnect="true"
+                    app:CheckTime="5000"
+                    app:DrawModel="variable"
+                    app:SensorType="FENG_BEI" />
+
+                <TextView
+
+                    android:text=" "
+
+                    style="@style/fbspan" />
+
+                <com.sensor.view.SensorView
+
+                    android:id="@+id/fb_test_3"
+
+
+                    style="@style/fbicon"
+                    app:CheckConnect="true"
+                    app:CheckTime="5000"
+                    app:DrawModel="variable"
+                    app:SensorType="FENG_BEI" />
+
+                <TextView
+
+                    android:text=" "
+
+                    style="@style/fbspan" />
+
+                <com.sensor.view.SensorView
+
+                    android:id="@+id/fb_test_4"
+
+
+                    style="@style/fbicon"
+                    app:CheckConnect="true"
+                    app:CheckTime="5000"
+                    app:DrawModel="variable"
+                    app:SensorType="FENG_BEI" />
+
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    style="@style/fbname"
+                    android:text="风速1： " />
+
+                <TextView
+                    android:id="@+id/fs_testwindcup_1"
+                    style="@style/fbvalue"
+                    android:text=" m/s" />
+
+                <TextView
+                    style="@style/fbname"
+                    android:text="风速2： " />
+
+                <TextView
+                    android:id="@+id/fs_testwindcup_2"
+                    style="@style/fbvalue"
+                    android:text=" m/s" />
+
+                <TextView
+                    style="@style/fbname"
+                    android:text="风速3： " />
+
+                <TextView
+                    android:id="@+id/fs_testwindcup_3"
+                    style="@style/fbvalue"
+                    android:text=" m/s" />
+
+                <TextView
+                    style="@style/fbname"
+                    android:text="风速4： " />
+
+                <TextView
+                    android:id="@+id/fs_testwindcup_4"
+                    style="@style/fbvalue"
+                    android:text=" m/s" />
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:id="@+id/linearLayoutfb2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <com.sensor.view.SensorView
+
+                    android:id="@+id/fb_test_5"
+
+
+                    style="@style/fbicon"
+                    app:CheckConnect="true"
+                    app:CheckTime="5000"
+                    app:DrawModel="variable"
+                    app:SensorType="FENG_BEI" />
+
+                <TextView
+
+                    android:text=" "
+
+                    style="@style/fbspan" />
+
+                <com.sensor.view.SensorView
+
+                    android:id="@+id/fb_test_6"
+
+
+                    style="@style/fbicon"
+                    app:CheckConnect="true"
+                    app:CheckTime="5000"
+                    app:DrawModel="variable"
+                    app:SensorType="FENG_BEI" />
+
+                <TextView
+
+                    android:text=" "
+
+                    style="@style/fbspan" />
+
+                <com.sensor.view.SensorView
+
+                    android:id="@+id/fb_test_7"
+
+
+                    style="@style/fbicon"
+                    app:CheckConnect="true"
+                    app:CheckTime="5000"
+                    app:DrawModel="variable"
+                    app:SensorType="FENG_BEI" />
+
+                <TextView
+
+                    android:text=" "
+
+                    style="@style/fbspan" />
+
+                <com.sensor.view.SensorView
+
+                    android:id="@+id/fb_test_8"
+
+
+                    style="@style/fbicon"
+                    app:CheckConnect="true"
+                    app:CheckTime="5000"
+                    app:DrawModel="variable"
+                    app:SensorType="FENG_BEI" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <TextView
+                    style="@style/fbname"
+                    android:text="风速5： " />
+
+                <TextView
+                    android:id="@+id/fs_testwindcup_5"
+                    style="@style/fbvalue"
+                    android:text=" m/s" />
+
+                <TextView
+                    style="@style/fbname"
+                    android:text="风速6： " />
+
+                <TextView
+                    android:id="@+id/fs_testwindcup_6"
+                    style="@style/fbvalue"
+                    android:text=" m/s" />
+
+                <TextView
+                    style="@style/fbname"
+                    android:text="风速7： " />
+
+                <TextView
+                    android:id="@+id/fs_testwindcup_7"
+                    style="@style/fbvalue"
+                    android:text=" m/s" />
+
+                <TextView
+                    style="@style/fbname"
+                    android:text="风速8： " />
+
+                <TextView
+                    android:id="@+id/fs_testwindcup_8"
+                    style="@style/fbvalue"
+                    android:text=" m/s" />
+
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:id="@+id/linearLayoutfb3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <com.sensor.view.SensorView
+
+                    android:id="@+id/fb_test_9"
+
+
+                    style="@style/fbicon"
+                    app:CheckConnect="true"
+                    app:CheckTime="5000"
+                    app:DrawModel="variable"
+                    app:SensorType="FENG_BEI" />
+
+                <TextView
+
+                    android:text=" "
+
+                    style="@style/fbspan" />
+
+                <com.sensor.view.SensorView
+
+                    android:id="@+id/fb_test_10"
+
+
+                    style="@style/fbicon"
+                    app:CheckConnect="true"
+                    app:CheckTime="5000"
+                    app:DrawModel="variable"
+                    app:SensorType="FENG_BEI" />
+
+                <TextView
+
+                    android:text=" "
+
+                    style="@style/fbspan" />
+
+                <com.sensor.view.SensorView
+
+                    android:id="@+id/fb_test_11"
+
+
+                    style="@style/fbicon"
+                    app:CheckConnect="true"
+                    app:CheckTime="5000"
+                    app:DrawModel="variable"
+                    app:SensorType="FENG_BEI" />
+
+                <TextView
+
+                    android:text=" "
+
+                    style="@style/fbspan" />
+
+                <com.sensor.view.SensorView
+
+                    android:id="@+id/fb_test_12"
+
+
+                    style="@style/fbicon"
+                    app:CheckConnect="true"
+                    app:CheckTime="5000"
+                    app:DrawModel="variable"
+                    app:SensorType="FENG_BEI" />
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <TextView
+                    style="@style/fbname"
+                    android:text="风速9： " />
+
+                <TextView
+                    android:id="@+id/fs_testwindcup_9"
+                    style="@style/fbvalue"
+                    android:text=" m/s" />
+
+                <TextView
+                    style="@style/fbname"
+                    android:text="风速10： " />
+
+                <TextView
+                    android:id="@+id/fs_testwindcup_10"
+                    style="@style/fbvalue"
+                    android:text=" m/s" />
+
+                <TextView
+                    style="@style/fbname"
+                    android:text="风速11： " />
+
+                <TextView
+                    android:id="@+id/fs_testwindcup_11"
+                    style="@style/fbvalue"
+                    android:text=" m/s" />
+
+                <TextView
+                    style="@style/fbname"
+                    android:text="风速12： " />
+
+                <TextView
+                    android:id="@+id/fs_testwindcup_12"
+                    style="@style/fbvalue"
+                    android:text=" m/s" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:id="@+id/linearLayoutfb4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.sensor.view.SensorView
+
+                    android:id="@+id/fb_test_13"
+
+
+                    style="@style/fbicon"
+                    app:CheckConnect="true"
+                    app:CheckTime="5000"
+                    app:DrawModel="variable"
+                    app:SensorType="FENG_BEI" />
+
+                <TextView
+
+                    android:text=" "
+
+                    style="@style/fbspan" />
+
+                <com.sensor.view.SensorView
+
+                    android:id="@+id/fb_test_14"
+
+
+                    style="@style/fbicon"
+                    app:CheckConnect="true"
+                    app:CheckTime="5000"
+                    app:DrawModel="variable"
+                    app:SensorType="FENG_BEI" />
+
+                <TextView
+
+                    android:text=" "
+
+                    style="@style/fbspan" />
+
+                <com.sensor.view.SensorView
+
+
+                    android:id="@+id/fb_test_15"
+
+
+                    style="@style/fbicon"
+                    app:CheckConnect="true"
+
+                    app:CheckTime="5000"
+                    app:DrawModel="variable"
+                    app:SensorType="FENG_BEI" />
+
+                <TextView
+
+                    android:text=" "
+
+                    style="@style/fbspan" />
+
+                <com.sensor.view.SensorView
+
+                    android:id="@+id/fb_test_16"
+
+
+                    style="@style/fbicon"
+                    app:CheckConnect="true"
+                    app:CheckTime="5000"
+                    app:DrawModel="variable"
+                    app:SensorType="FENG_BEI" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    style="@style/fbname"
+                    android:text="风速13： " />
+
+                <TextView
+                    android:id="@+id/fs_testwindcup_13"
+                    style="@style/fbvalue"
+                    android:text=" m/s" />
+
+                <TextView
+                    style="@style/fbname"
+                    android:text="风速14： " />
+
+                <TextView
+                    android:id="@+id/fs_testwindcup_14"
+                    style="@style/fbvalue"
+                    android:text=" m/s" />
+
+                <TextView
+                    style="@style/fbname"
+                    android:text="风速15： " />
+
+                <TextView
+                    android:id="@+id/fs_testwindcup_15"
+                    style="@style/fbvalue"
+                    android:text=" m/s" />
+
+                <TextView
+                    style="@style/fbname"
+                    android:text="风速16： " />
+
+                <TextView
+                    android:id="@+id/fs_testwindcup_16"
+                    style="@style/fbvalue"
+                    android:text=" m/s" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</LinearLayout>
