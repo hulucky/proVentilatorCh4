@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.sensor.SensorData;
 import com.sensor.view.SensorView;
+import com.ventilator.Utils.SharedPrefrenceUtils;
 import com.ventilator.administrator.DATAbase.R;
 import com.ventilator.test.TestActivity;
 
@@ -30,15 +31,15 @@ public class TestSensorfragment extends Fragment {
     SensorView sgl1;
     @BindView(R.id.gl2_test)
     SensorView sgl2;
-
-    TestActivity mActivity;
-    Unbinder unbinder;
     @BindView(R.id.zj1_test)
     SensorView zj1Test;
     @BindView(R.id.zj2_test)
     SensorView zj2Test;
     @BindView(R.id.ch4_test)
     SensorView ch4test;
+
+    TestActivity mActivity;
+    Unbinder unbinder;
 
     @Nullable
     @Override
@@ -53,8 +54,9 @@ public class TestSensorfragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
+        if (SharedPrefrenceUtils.getCanShowCh4(getContext())) {
+            ch4test.setVisibility(View.VISIBLE);
+        }
     }
 
     private void SetSensorState(SensorView msv, float mpower, float msignal, int minf) {
@@ -93,7 +95,10 @@ public class TestSensorfragment extends Fragment {
                     SetSensorState(zj2Test, mpower, msignal, minf);
                     break;
                 case "甲烷":
-                    SetSensorState(ch4test, mpower, msignal, minf);
+                    if (SharedPrefrenceUtils.getCanShowCh4(getContext())) {
+                        ch4test.setVisibility(View.VISIBLE);
+                        SetSensorState(ch4test, mpower, msignal, minf);
+                    }
                     break;
             }
         } catch (Exception e) {

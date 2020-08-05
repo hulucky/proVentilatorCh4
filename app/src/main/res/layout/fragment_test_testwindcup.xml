@@ -25,40 +25,47 @@
             app:layout_constraintEnd_toStartOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-        <RelativeLayout
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-            <TextView
-                android:id="@+id/tvpjfsname"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"     android:layout_marginTop="15dp"
-                android:layout_marginLeft="15dp"
-                android:text="平均风速："
+            <RelativeLayout
 
-                android:textSize="18sp"/>
-            <TextView
-                android:id="@+id/tv_testwindspeed_pjfs"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"     android:layout_marginTop="15dp"
-           android:layout_marginLeft="120dp"
-                android:textSize="18sp"
-                android:text="   m/s"/>
-            <ImageView
-                android:id="@+id/img_fbshow"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="320dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/fbon"/>
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-        </RelativeLayout>
+                <TextView
+                    android:id="@+id/tvpjfsname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:text="平均风速："
+
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_testwindspeed_pjfs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginTop="15dp"
+                    android:text="   m/s"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:id="@+id/img_fbshow"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="320dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/fbon" />
+
+            </RelativeLayout>
+
             <LinearLayout
                 android:id="@+id/linearLayoutfb1"
                 android:layout_width="match_parent"
@@ -70,27 +77,25 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.sensor.view.SensorView
-
                     android:id="@+id/fb_test_1"
-
-
                     style="@style/fbicon"
                     app:CheckConnect="true"
                     app:CheckTime="5000"
+                    app:TagText="风杯"
                     app:DrawModel="variable"
                     app:SensorType="FENG_BEI" />
 
                 <TextView
 
-                    android:text=" "
+                    style="@style/fbspan"
 
-                    style="@style/fbspan" />
+                    android:text=" " />
 
                 <com.sensor.view.SensorView
 
                     android:id="@+id/fb_test_2"
 
-
+                    app:TagText="风杯"
                     style="@style/fbicon"
                     app:CheckConnect="true"
                     app:CheckTime="5000"
@@ -99,14 +104,14 @@
 
                 <TextView
 
-                    android:text=" "
+                    style="@style/fbspan"
 
-                    style="@style/fbspan" />
+                    android:text=" " />
 
                 <com.sensor.view.SensorView
 
                     android:id="@+id/fb_test_3"
-
+                    app:TagText="风杯"
 
                     style="@style/fbicon"
                     app:CheckConnect="true"
@@ -116,15 +121,15 @@
 
                 <TextView
 
-                    android:text=" "
+                    style="@style/fbspan"
 
-                    style="@style/fbspan" />
+                    android:text=" " />
 
                 <com.sensor.view.SensorView
 
                     android:id="@+id/fb_test_4"
 
-
+                    app:TagText="风杯"
                     style="@style/fbicon"
                     app:CheckConnect="true"
                     app:CheckTime="5000"
@@ -196,7 +201,7 @@
 
                     android:id="@+id/fb_test_5"
 
-
+                    app:TagText="风杯"
                     style="@style/fbicon"
                     app:CheckConnect="true"
                     app:CheckTime="5000"
@@ -205,15 +210,15 @@
 
                 <TextView
 
-                    android:text=" "
+                    style="@style/fbspan"
 
-                    style="@style/fbspan" />
+                    android:text=" " />
 
                 <com.sensor.view.SensorView
 
                     android:id="@+id/fb_test_6"
 
-
+                    app:TagText="风杯"
                     style="@style/fbicon"
                     app:CheckConnect="true"
                     app:CheckTime="5000"
@@ -222,15 +227,15 @@
 
                 <TextView
 
-                    android:text=" "
+                    style="@style/fbspan"
 
-                    style="@style/fbspan" />
+                    android:text=" " />
 
                 <com.sensor.view.SensorView
 
                     android:id="@+id/fb_test_7"
 
-
+                    app:TagText="风杯"
                     style="@style/fbicon"
                     app:CheckConnect="true"
                     app:CheckTime="5000"
@@ -239,15 +244,15 @@
 
                 <TextView
 
-                    android:text=" "
+                    style="@style/fbspan"
 
-                    style="@style/fbspan" />
+                    android:text=" " />
 
                 <com.sensor.view.SensorView
 
                     android:id="@+id/fb_test_8"
 
-
+                    app:TagText="风杯"
                     style="@style/fbicon"
                     app:CheckConnect="true"
                     app:CheckTime="5000"
@@ -322,7 +327,7 @@
 
                     android:id="@+id/fb_test_9"
 
-
+                    app:TagText="风杯"
                     style="@style/fbicon"
                     app:CheckConnect="true"
                     app:CheckTime="5000"
@@ -331,15 +336,15 @@
 
                 <TextView
 
-                    android:text=" "
+                    style="@style/fbspan"
 
-                    style="@style/fbspan" />
+                    android:text=" " />
 
                 <com.sensor.view.SensorView
 
                     android:id="@+id/fb_test_10"
 
-
+                    app:TagText="风杯"
                     style="@style/fbicon"
                     app:CheckConnect="true"
                     app:CheckTime="5000"
@@ -348,15 +353,15 @@
 
                 <TextView
 
-                    android:text=" "
+                    style="@style/fbspan"
 
-                    style="@style/fbspan" />
+                    android:text=" " />
 
                 <com.sensor.view.SensorView
 
                     android:id="@+id/fb_test_11"
 
-
+                    app:TagText="风杯"
                     style="@style/fbicon"
                     app:CheckConnect="true"
                     app:CheckTime="5000"
@@ -365,15 +370,15 @@
 
                 <TextView
 
-                    android:text=" "
+                    style="@style/fbspan"
 
-                    style="@style/fbspan" />
+                    android:text=" " />
 
                 <com.sensor.view.SensorView
 
                     android:id="@+id/fb_test_12"
 
-
+                    app:TagText="风杯"
                     style="@style/fbicon"
                     app:CheckConnect="true"
                     app:CheckTime="5000"
@@ -472,7 +477,7 @@
 
                     android:id="@+id/fb_test_13"
 
-
+                    app:TagText="风杯"
                     style="@style/fbicon"
                     app:CheckConnect="true"
                     app:CheckTime="5000"
@@ -481,15 +486,15 @@
 
                 <TextView
 
-                    android:text=" "
+                    style="@style/fbspan"
 
-                    style="@style/fbspan" />
+                    android:text=" " />
 
                 <com.sensor.view.SensorView
 
                     android:id="@+id/fb_test_14"
 
-
+                    app:TagText="风杯"
                     style="@style/fbicon"
                     app:CheckConnect="true"
                     app:CheckTime="5000"
@@ -498,15 +503,15 @@
 
                 <TextView
 
-                    android:text=" "
+                    style="@style/fbspan"
 
-                    style="@style/fbspan" />
+                    android:text=" " />
 
                 <com.sensor.view.SensorView
 
 
                     android:id="@+id/fb_test_15"
-
+                    app:TagText="风杯"
 
                     style="@style/fbicon"
                     app:CheckConnect="true"
@@ -517,15 +522,15 @@
 
                 <TextView
 
-                    android:text=" "
+                    style="@style/fbspan"
 
-                    style="@style/fbspan" />
+                    android:text=" " />
 
                 <com.sensor.view.SensorView
 
                     android:id="@+id/fb_test_16"
 
-
+                    app:TagText="风杯"
                     style="@style/fbicon"
                     app:CheckConnect="true"
                     app:CheckTime="5000"
@@ -583,6 +588,262 @@
 
 
             </LinearLayout>
+            <!--******************************-->
+            <LinearLayout
+
+                android:id="@+id/linearLayoutfb5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.sensor.view.SensorView
+
+                    android:id="@+id/fb_test_17"
+
+                    app:TagText="风杯"
+                    style="@style/fbicon"
+                    app:CheckConnect="true"
+                    app:CheckTime="5000"
+                    app:DrawModel="variable"
+                    app:SensorType="FENG_BEI" />
+
+                <TextView
+
+                    style="@style/fbspan"
+
+                    android:text=" " />
+
+                <com.sensor.view.SensorView
+
+                    android:id="@+id/fb_test_18"
+
+                    app:TagText="风杯"
+                    style="@style/fbicon"
+                    app:CheckConnect="true"
+                    app:CheckTime="5000"
+                    app:DrawModel="variable"
+                    app:SensorType="FENG_BEI" />
+
+                <TextView
+
+                    style="@style/fbspan"
+
+                    android:text=" " />
+
+                <com.sensor.view.SensorView
+
+
+                    android:id="@+id/fb_test_19"
+                    app:TagText="风杯"
+
+                    style="@style/fbicon"
+                    app:CheckConnect="true"
+
+                    app:CheckTime="5000"
+                    app:DrawModel="variable"
+                    app:SensorType="FENG_BEI" />
+
+                <TextView
+
+                    style="@style/fbspan"
+
+                    android:text=" " />
+
+                <com.sensor.view.SensorView
+
+                    android:id="@+id/fb_test_20"
+
+                    app:TagText="风杯"
+                    style="@style/fbicon"
+                    app:CheckConnect="true"
+                    app:CheckTime="5000"
+                    app:DrawModel="variable"
+                    app:SensorType="FENG_BEI" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_tv5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    style="@style/fbname"
+                    android:text="风速17： " />
+
+                <TextView
+                    android:id="@+id/fs_testwindcup_17"
+                    style="@style/fbvalue"
+                    android:text=" m/s" />
+
+                <TextView
+                    style="@style/fbname"
+                    android:text="风速18： " />
+
+                <TextView
+                    android:id="@+id/fs_testwindcup_18"
+                    style="@style/fbvalue"
+                    android:text=" m/s" />
+
+                <TextView
+                    style="@style/fbname"
+                    android:text="风速19： " />
+
+                <TextView
+                    android:id="@+id/fs_testwindcup_19"
+                    style="@style/fbvalue"
+                    android:text=" m/s" />
+
+                <TextView
+                    style="@style/fbname"
+                    android:text="风速20： " />
+
+                <TextView
+                    android:id="@+id/fs_testwindcup_20"
+                    style="@style/fbvalue"
+                    android:text=" m/s" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:id="@+id/linearLayoutfb6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.sensor.view.SensorView
+
+                    android:id="@+id/fb_test_21"
+
+                    app:TagText="风杯"
+                    style="@style/fbicon"
+                    app:CheckConnect="true"
+                    app:CheckTime="5000"
+                    app:DrawModel="variable"
+                    app:SensorType="FENG_BEI" />
+
+                <TextView
+
+                    style="@style/fbspan"
+
+                    android:text=" " />
+
+                <com.sensor.view.SensorView
+
+                    android:id="@+id/fb_test_22"
+
+                    app:TagText="风杯"
+                    style="@style/fbicon"
+                    app:CheckConnect="true"
+                    app:CheckTime="5000"
+                    app:DrawModel="variable"
+                    app:SensorType="FENG_BEI" />
+
+                <TextView
+
+                    style="@style/fbspan"
+
+                    android:text=" " />
+
+                <com.sensor.view.SensorView
+
+
+                    android:id="@+id/fb_test_23"
+                    app:TagText="风杯"
+
+                    style="@style/fbicon"
+                    app:CheckConnect="true"
+
+                    app:CheckTime="5000"
+                    app:DrawModel="variable"
+                    app:SensorType="FENG_BEI" />
+
+                <TextView
+
+                    style="@style/fbspan"
+
+                    android:text=" " />
+
+                <com.sensor.view.SensorView
+
+                    android:id="@+id/fb_test_24"
+
+                    app:TagText="风杯"
+                    style="@style/fbicon"
+                    app:CheckConnect="true"
+                    app:CheckTime="5000"
+                    app:DrawModel="variable"
+                    app:SensorType="FENG_BEI" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_tv6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    style="@style/fbname"
+                    android:text="风速21： " />
+
+                <TextView
+                    android:id="@+id/fs_testwindcup_21"
+                    style="@style/fbvalue"
+                    android:text=" m/s" />
+
+                <TextView
+                    style="@style/fbname"
+                    android:text="风速22： " />
+
+                <TextView
+                    android:id="@+id/fs_testwindcup_22"
+                    style="@style/fbvalue"
+                    android:text=" m/s" />
+
+                <TextView
+                    style="@style/fbname"
+                    android:text="风速23： " />
+
+                <TextView
+                    android:id="@+id/fs_testwindcup_23"
+                    style="@style/fbvalue"
+                    android:text=" m/s" />
+
+                <TextView
+                    style="@style/fbname"
+                    android:text="风速24： " />
+
+                <TextView
+                    android:id="@+id/fs_testwindcup_24"
+                    style="@style/fbvalue"
+                    android:text=" m/s" />
+
+
+            </LinearLayout>
+
+            <!--******************************-->
 
         </LinearLayout>
 

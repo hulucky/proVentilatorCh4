@@ -26,46 +26,47 @@ public class TaskResEnity {
     private int saveIndex;
     private String SaveTime;
 
-    private float mBhzqy;
+    private float mBhzqy;//饱和蒸汽压
     private float mWd;
     private float mKqmd;
     private float mDqy;
     private double mSd;
 
-    private float mCfddy;
+    private float mCfddy;//测风点动压
     private double mPjfs;
-    private double mFl;
+    private double mFl;//风量
     private double mCfmj;
-    private float mDy;
+    private float mDy;//动压
     private double mPtgxs;
-    private float mCymjd;
+    private float mCymjd;//测压面积大
     private float mCymjx;
-    private float mJyc;
-    private float mZgl1;
-    private float mDjgl;
+    private float mJyc;//静压差
+    private float mZgl1;//轴功率1
+    private float mDjgl;//电机功率1
     private float mDjxl;
-    private float mCdxl;
+    private float mCdxl;//传动效率1
     private float mZgl2;
     private float mDjgl2;
     private float mDjxl2;
     private float mCdxl2;
     private float mJygl;
-    private double mFjjy;
-    private float mQygl;
-    private double mFjqy;
+    private double mFjjy;//风机惊讶
+    private float mQygl;//全压功率
+    private double mFjqy;//风机全压
     private float mJyxl;
     private float mQyxl;
-    private float mKsckmj;
+    private float mKsckmj;//扩散出口面积
     private float mJy;
-    private float mKsckdy;
-    private float mFjyxxl;
-    private float mGxnh;
-    private float mcKqmdzhxs;
-    private int mSczs;
-    private float mcZszhxs;
-    private int mEdzs;
-    private double mgFl;
+    private float mKsckdy;//扩散器出口动压
+    private float mFjyxxl;//风机运行效率
+    private float mGxnh;//工序能耗
+    private float mcKqmdzhxs;//空气密度转换系数
+    private int mSczs;//实测转速
+    private float mcZszhxs;//转速转换系数
+    private int mEdzs;//额定转速
 
+    //带g的都是换算后的
+    private double mgFl;//
     private float mgZgl1;
     private float mgZgl2;
     private float mgFjjy;
@@ -95,7 +96,7 @@ public class TaskResEnity {
     private float glys  ;
     private float fzxs  ;
     private float yxzt  ;
-    private String stryxzt;
+    private String stryxzt;//运行状态str
     private String dj1qblc;
     private String dj1csff;
     private float dj1cdxl;

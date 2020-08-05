@@ -105,14 +105,14 @@ public class TestShowAdapter extends BaseAdapter {
                     strdqy = df2.format(mdata.getmDqy()) + "";
                 }
                 if (mdata.getMff().equals("风杯法")) {
-                    if (MyApp.getInstance().getAllSensorDisconnect(5, 20) != 0) {
+                    if (MyApp.getInstance().getAllSensorDisconnect(5, 28) != 0) {
                         strpjfs = df1.format(mdata.getmPjfs()) + "";
                     }
                 }else if(mdata.getMff().equals("静压全压法"))
                 {
                     strpjfs = df1.format(mdata.getmPjfs()) + "";
                 }
-                if(MyApp.getInstance().getSensorstateByIndex(23) == 1) {
+                if(MyApp.getInstance().getSensorstateByIndex(31) == 1) {
                     strch4=df2.format(mdata.getCh4());
                 }
 

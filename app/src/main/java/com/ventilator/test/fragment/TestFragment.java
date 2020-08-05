@@ -55,11 +55,11 @@ public class TestFragment extends Fragment {
     TaskEntity mTask;
     MyApp myApp;
     Unbinder unbinder;
-    public TestSensorfragment msensorfragment;
-    static TestShowfragment mshowfragment;
-    static TestPressfragment mpressfragment;
-    public TestWindcupfragment mwindcupfragment;
-    static TestTestfragment mtestfragment;
+    public TestSensorfragment msensorfragment;// 1 传感器界面
+    public TestWindcupfragment mwindcupfragment;// 2 风速
+    static TestShowfragment mshowfragment;// 3 电机
+    static TestPressfragment mpressfragment;// 4 压力采集
+    static TestTestfragment mtestfragment;//
     List<Fragment> list_fragments;
     TestActivity mActivity;
 
@@ -177,7 +177,7 @@ public class TestFragment extends Fragment {
 
     @OnClick({R.id.rbn_test_bk, R.id.rbn_test_cgq, R.id.rbn_test_dj, R.id.rbn_test_fs, R.id.rbn_test_gk, R.id.rbn_test_ylcj, R.id.btn_test_save})
     public void onViewClicked(View view) {
-        try {
+//        try {
             switch (view.getId()) {
                 case R.id.rbn_test_bk://标况
                     flmain.setCurrentItem(1, false);
@@ -197,7 +197,7 @@ public class TestFragment extends Fragment {
                     float[] mfs = mActivity.getmLockFsList();
                     float pjfs = 0.0f, sumfs = 0.0f;
                     int fscount = 0;
-                    for (int i = 0; i < 16; i++) {
+                    for (int i = 0; i < 24; i++) {
                         mwindcupfragment.SetWindSpeedByIndex(i + 1, mfs[i]);
                         if (mfs[i] != 0) {
                             sumfs = sumfs + mfs[i];
@@ -248,9 +248,9 @@ public class TestFragment extends Fragment {
 
 
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
     }
 
     @Override

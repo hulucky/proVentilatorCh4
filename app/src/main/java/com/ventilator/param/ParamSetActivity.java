@@ -193,6 +193,11 @@ public class ParamSetActivity extends AppCompatActivity {
         });
         spmcsff1.setSelection(2);
         spmcsff2.setSelection(2);
+        //*********************************************************
+//        String sfsdf = "你好啊";
+//        float parseFloat = Float.parseFloat(sfsdf);
+//        Log.i("ssdgdfgd", "onCreate: " + parseFloat);
+        //*********************************************************
     }
 
     @Override
@@ -642,7 +647,7 @@ public class ParamSetActivity extends AppCompatActivity {
             case R.id.fab:
                 Intent intent = new Intent();
                 intent.setClass(ParamSetActivity.this, com.ventilator.param.HistoryTaskSearchActivity.class);
-                startActivityForResult(intent, ConstantData.HistoryTask_resultCode);
+                startActivityForResult(intent, ConstantData.HistoryTask_resultCode_TESTING);
                 break;
             case R.id.btn_go_test:
                 // 参数合理性检测

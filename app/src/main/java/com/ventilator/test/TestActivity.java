@@ -43,6 +43,7 @@ import com.ventilator.Adapter.TestPagerAdapter;
 import com.ventilator.Tools.DataCleanManager;
 import com.ventilator.Tools.MyFunction;
 
+import com.ventilator.Utils.SharedPrefrenceUtils;
 import com.ventilator.administrator.DATAbase.R;
 import com.ventilator.administrator.DATAbase.greendao.TaskEntity;
 import com.ventilator.administrator.DATAbase.greendao.TaskResEnity;
@@ -135,7 +136,7 @@ public class TestActivity extends AppCompatActivity {
     private long pretime = 0;
     private TaskEntity mtask;
 
-    public static volatile long[] IsTx = new long[25]; // 各传感器通讯时间最后一次通讯时间
+    public static volatile long[] IsTx = new long[33]; // 各传感器通讯时间最后一次通讯时间
     public static volatile long CaijiTime = 0;
     public static int TxDelay = 10;
     private float JyZero = 0f;
@@ -147,7 +148,7 @@ public class TestActivity extends AppCompatActivity {
     private boolean IsStart;
     //</editor-fold>
     private Handler handler;
-
+    public Context context;
 
     public synchronized void SetFiveOne(int index) {
         IsTx[index] = System.currentTimeMillis();
@@ -199,11 +200,11 @@ public class TestActivity extends AppCompatActivity {
         setBackArrowStyle();
         myApp = MyApp.getInstance();
         handler = new Handler();
-
+        context = this;
         showLoading();
         getData();
-        mFsList = new float[16];
-        mLockFsList = new float[16];
+        mFsList = new float[24];
+        mLockFsList = new float[24];
         shuaXin = true;
         DjShuaxin = true;
         new Thread(new Runnable() {
@@ -584,6 +585,13 @@ public class TestActivity extends AppCompatActivity {
                     mLockFsList[fsindex - 1] = mFs;
                 }
 
+                if (fsindex >= 17) {
+                    SharedPrefrenceUtils.setCanShowEight(context, true);
+                }
+                if (SharedPrefrenceUtils.getCanShowEight(context)) {
+                    testFragment.mwindcupfragment.showEight();
+                }
+
                 float fssum1 = (float) 0.00;
                 int fscount = 0;
                 for (int i = 0; i < mFsList.length; i++) {
@@ -637,7 +645,15 @@ public class TestActivity extends AppCompatActivity {
                     } else if (ComRecData.bRec[13] == 1)//一号包1-8
                     {
                         fszjindex = 0;
+                    } else if (ComRecData.bRec[13] == 4) {//三号包17-24
+                        fszjindex = 16;
+                        SharedPrefrenceUtils.setCanShowEight(context, true);
                     }
+                    //后面的八个传感器是否显示。未连接时不显示；当第一次连接后，以后都一直显示
+                    if (SharedPrefrenceUtils.getCanShowEight(context)) {
+                        testFragment.mwindcupfragment.showEight();
+                    }
+
                     for (int i = 0; i < 8; i++) {
                         mFs = 0.0f;
                         float a = ((float) MyFunction.HexToInt(MyFunction.ByteArrToHex(
@@ -664,8 +680,8 @@ public class TestActivity extends AppCompatActivity {
                     int mcjpower = MyFunction.twoBytesToInt(ComRecData.bRec, 54);
                     int mfspower = MyFunction.twoBytesToInt(ComRecData.bRec, 56);
                     int mzjsingal = ComRecData.bRec[58] < 0 ? 256 + ComRecData.bRec[58] : ComRecData.bRec[58];
-                    mdata.setSensor(21, mcjpower, mzjsingal, 1);
-                    mdata.setSensor(22, mfspower, mzjsingal, 1);
+                    mdata.setSensor(29, mcjpower, mzjsingal, 1);
+                    mdata.setSensor(30, mfspower, mzjsingal, 1);
                     fssum1 = (float) 0.00;
                     fscount = 0;
                     for (int i = 0; i < mFsList.length; i++) {
@@ -701,10 +717,10 @@ public class TestActivity extends AppCompatActivity {
                         SetFiveOne(0);
                         mdata.setSensor(0, mpower, msingal, 1);
                     }
-                    mdata.setSensor(21, mcjpower, mzjsingal, 1);
-                    mdata.setSensor(22, mfspower, mzjsingal, 1);
-                    SetFiveOne(21);
-                    SetFiveOne(22);
+                    mdata.setSensor(29, mcjpower, mzjsingal, 1);
+                    mdata.setSensor(30, mfspower, mzjsingal, 1);
+                    SetFiveOne(29);
+                    SetFiveOne(30);
 
 
                 }
@@ -984,15 +1000,15 @@ public class TestActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         tvZhuanSu.setVisibility(View.VISIBLE);
-                        tvZhuanSu.setText("转速："+df4.format(zhuansuFloat / 10)+" r/min");
+                        tvZhuanSu.setText("转速：" + df4.format(zhuansuFloat / 10) + " r/min");
                     }
                 });
-                SetFiveOne(24);
+                SetFiveOne(32);
                 break;
             case 78:// B2 甲烷传感器
             case -89:// B2甲烷传感器
                 if (ComRecData.bRec.length == 33) {
-
+                    SharedPrefrenceUtils.setCanShowCh4(context, true);
                     double ch4 = 0;
 
 //                    double SumCh4 = 0;
@@ -1017,17 +1033,19 @@ public class TestActivity extends AppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            tvCh4.setVisibility(View.VISIBLE);
-                            tvCh4.setText("甲烷浓度："+df22.format(mdata.getCh4()) + " %");
+                            if (SharedPrefrenceUtils.getCanShowCh4(context)) {
+                                tvCh4.setVisibility(View.VISIBLE);
+                                tvCh4.setText("甲烷浓度：" + df22.format(mdata.getCh4()) + " %");
+                            }
                         }
                     });
 //                    tvcySensor.setText(df4.format(Cy - CyZero) + "Pa");
                     msingal = ComRecData.bRec[31] < 0 ? 256 + ComRecData.bRec[31] : ComRecData.bRec[31];
                     mpower = MyFunction.twoBytesToInt(ComRecData.bRec, 29);
-                    mdata.setSensor(23, mpower, msingal, 1);
+                    mdata.setSensor(31, mpower, msingal, 1);
 //                    SetSensorState(cySensor, mpower, msingal, 1);
 //                    testFragment.msensorfragment.SetSensor("差压", mpower, msingal, 1);
-                    SetFiveOne(23);
+                    SetFiveOne(31);
                 }
 
             default:
@@ -1059,25 +1077,28 @@ public class TestActivity extends AppCompatActivity {
 
                     testFragment.msensorfragment.SetSensor("温湿度", ms[0].getMpower(), ms[0].getMsignal(), 1);
                 }
-                if (TimeBetween(IsTx[21]) < 1000 && ms[21] != null) {
-                    testFragment.msensorfragment.SetSensor("收集器", ms[21].getMpower(), ms[21].getMsignal(), 1);
+                //中继（两个）
+                if (TimeBetween(IsTx[29]) < 1000 && ms[29] != null) {
+                    testFragment.msensorfragment.SetSensor("收集器", ms[29].getMpower(), ms[29].getMsignal(), 1);
                 }
-                if (TimeBetween(IsTx[22]) < 1000 && ms[22] != null) {
-                    testFragment.msensorfragment.SetSensor("发射器", ms[22].getMpower(), ms[22].getMsignal(), 1);
+                if (TimeBetween(IsTx[30]) < 1000 && ms[30] != null) {
+                    testFragment.msensorfragment.SetSensor("发射器", ms[30].getMpower(), ms[30].getMsignal(), 1);
                 }
 
-                if (TimeBetween(IsTx[23]) > TxDelay * 1000) {
+                //甲烷
+                if (TimeBetween(IsTx[31]) > TxDelay * 1000) {
                     if (shuaXin) {
                         mdata.setCh4(0d);
                         tvCh4.setVisibility(View.INVISIBLE);
                     }
-                    MyApp.getInstance().SetSensorConnectStateFalse(23);
+                    MyApp.getInstance().SetSensorConnectStateFalse(31);
                     // TVEdTgXk1.setText("00.00");
-                } else if (TimeBetween(IsTx[23]) < 1000 && ms[23] != null) {
+                } else if (TimeBetween(IsTx[31]) < 1000 && ms[31] != null) {
 
-                    testFragment.msensorfragment.SetSensor("甲烷", ms[23].getMpower(), ms[23].getMsignal(), 1);
+                    testFragment.msensorfragment.SetSensor("甲烷", ms[31].getMpower(), ms[31].getMsignal(), 1);
                 }
-                if (TimeBetween(IsTx[24]) > TxDelay * 1000) {
+                //转速
+                if (TimeBetween(IsTx[32]) > TxDelay * 1000) {
                     if (shuaXin) {
                         tvZhuanSu.setVisibility(View.INVISIBLE);
                     }
@@ -1164,7 +1185,7 @@ public class TestActivity extends AppCompatActivity {
                 // fengsu
                 float sum = 0;
                 if (mtask.getCsff().equals("风杯法")) {
-                    for (int i = 0; i < 16; i++) {
+                    for (int i = 0; i < 24; i++) {
                         if (i == 0) {
                             sum = 0;
                         }
@@ -1230,14 +1251,22 @@ public class TestActivity extends AppCompatActivity {
         boolean isSave = false;
         TaskResEnity mres = new TaskResEnity();
         mdata.CopyRes(mres);
-        try {
-            mres.setSaveTime(getSysTime());
-            MyApp.getDaoInstant().getTaskResEnityDao().insert(mres);
-            isSave = true;
-            SetCaiji();
-        } catch (Exception e) {
-            isSave = false;
-        }
+
+
+        mres.setSaveTime(getSysTime());
+        MyApp.getDaoInstant().getTaskResEnityDao().insert(mres);
+        isSave = true;
+        SetCaiji();
+
+//        try {
+//            mres.setSaveTime(getSysTime());
+//            MyApp.getDaoInstant().getTaskResEnityDao().insert(mres);
+//            isSave = true;
+//            SetCaiji();
+//        } catch (Exception e) {
+//
+//            isSave = false;
+//        }
         return isSave;
     }
 

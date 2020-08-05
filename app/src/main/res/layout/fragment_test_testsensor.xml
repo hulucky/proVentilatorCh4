@@ -6,39 +6,21 @@
     android:orientation="vertical">
 
     <ScrollView
-
-
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         android:background="#c1d8fb">
 
         <LinearLayout
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_marginLeft="15dp"
+            android:orientation="vertical"
             app:layout_constraintBottom_toTopOf="parent"
             app:layout_constraintEnd_toStartOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintBottom_toTopOf="parent"
-                app:layout_constraintEnd_toStartOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-
-            </LinearLayout>
-
-            <LinearLayout
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -48,7 +30,6 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <LinearLayout
-
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -65,16 +46,14 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:background="@color/white"
+                        app:TagText="压力"
                         app:CheckConnect="true"
-                       app:CheckTime="5000"
+                        app:CheckTime="5000"
                         app:DrawModel="variable"
                         app:SensorType="YA_LI" />
-
-
                 </LinearLayout>
 
                 <LinearLayout
-
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -84,25 +63,21 @@
                     app:layout_constraintEnd_toStartOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
-
 
                     <com.sensor.view.SensorView
                         android:id="@+id/cy_test"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:layout_marginTop="10dp"
                         android:background="@color/white"
                         app:CheckConnect="true"
-                       app:CheckTime="5000"
+                        app:TagText="差压"
+                        app:CheckTime="5000"
                         app:DrawModel="variable"
                         app:SensorType="CHA_YA" />
-
-
                 </LinearLayout>
 
                 <LinearLayout
-
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -113,26 +88,22 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-
                     <com.sensor.view.SensorView
                         android:id="@+id/wsd_test"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:layout_marginTop="10dp"
                         android:background="@color/white"
                         app:CheckConnect="true"
-                       app:CheckTime="5000"
+                        app:TagText="温湿度大气压"
+                        app:CheckTime="5000"
                         app:DrawModel="variable"
                         app:SensorType="WEN_SHI_DAQIYA" />
-
                 </LinearLayout>
-
 
             </LinearLayout>
 
             <LinearLayout
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -143,7 +114,6 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <LinearLayout
-
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -158,19 +128,16 @@
                         android:id="@+id/gl1_test"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:layout_marginTop="10dp"
                         android:background="@color/white"
                         app:CheckConnect="true"
-                       app:CheckTime="5000"
+                        app:TagText="功率箱"
+                        app:CheckTime="5000"
                         app:DrawModel="variable"
                         app:SensorType="GONG_LV_XIANG" />
-
-
                 </LinearLayout>
 
                 <LinearLayout
-
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -185,57 +152,16 @@
                         android:id="@+id/gl2_test"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:layout_marginTop="10dp"
                         android:background="@color/white"
                         app:CheckConnect="true"
-                       app:CheckTime="5000"
-                        app:DrawModel="variable"
-                        app:SensorType="GONG_LV_XIANG" />
-
-
-                </LinearLayout>
-
-
-                <LinearLayout
-
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    app:layout_constraintBottom_toTopOf="parent"
-                    app:layout_constraintEnd_toStartOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-                    <com.sensor.view.SensorView
-                        android:id="@+id/ch4_test"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:background="@color/white"
-                        app:CheckConnect="true"
+                        app:TagText="功率箱"
                         app:CheckTime="5000"
                         app:DrawModel="variable"
-                        app:SensorType="JIA_WAN" />
+                        app:SensorType="GONG_LV_XIANG" />
                 </LinearLayout>
 
-
-            </LinearLayout>
-
-            <LinearLayout
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                app:layout_constraintBottom_toTopOf="parent"
-                app:layout_constraintEnd_toStartOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
                 <LinearLayout
-
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -250,19 +176,28 @@
                         android:id="@+id/zj1_test"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:layout_marginTop="10dp"
                         android:background="@color/white"
                         app:CheckConnect="true"
+                        app:TagText="计时器"
                         app:CheckTime="5000"
                         app:DrawModel="variable"
                         app:SensorType="JI_SHI_QI_KAI_SHI" />
-
-
                 </LinearLayout>
 
-                <LinearLayout
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -277,20 +212,43 @@
                         android:id="@+id/zj2_test"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:layout_marginTop="10dp"
                         android:background="@color/white"
+                        app:TagText="计时器"
                         app:CheckConnect="true"
                         app:CheckTime="5000"
                         app:DrawModel="variable"
                         app:SensorType="JI_SHI_QI_KAI_SHI" />
-
-
                 </LinearLayout>
 
+                <!--ch4-->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.sensor.view.SensorView
+                        android:id="@+id/ch4_test"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="invisible"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/white"
+                        app:TagText="甲烷"
+                        app:CheckConnect="true"
+                        app:CheckTime="5000"
+                        app:DrawModel="variable"
+                        app:SensorType="JIA_WAN" />
+                </LinearLayout>
+                <!--ch4-->
 
                 <LinearLayout
-
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -303,11 +261,10 @@
 
                 </LinearLayout>
 
-
             </LinearLayout>
 
         </LinearLayout>
-    </ScrollView>
 
+    </ScrollView>
 
 </LinearLayout>

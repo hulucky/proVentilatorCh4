@@ -56,7 +56,9 @@ public class PdfActivity extends AppCompatActivity implements OnPageChangeListen
     }
 
     private void initEvent() {
-        String[] img_text = { "AQ1011-2005煤矿在用主通风机系统安全检测检验规范"
+        String[] img_text = { "AQ1011-2005煤矿在用主通风机系统安全检测检验规范","AQ2013.1-2008金属非金属地下矿山通风技术规范通风系统",
+                "AQ2013.3-2008金属非金属地下矿山通风技术规范通风系统检测","AQ2013.4-2008金属非金属地下矿山通风技术规范通风管理",
+                "AQ2013.5-2008金属非金属地下矿山通风技术规范通风系统鉴定指标","AQ2054-2016金属非金属矿山在用主通风机系统安全检验规范"
         };
         Intent intent = getIntent();
         int dex = intent.getIntExtra("pdf", 0);

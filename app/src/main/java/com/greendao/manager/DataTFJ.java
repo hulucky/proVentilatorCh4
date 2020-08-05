@@ -235,14 +235,14 @@ public class DataTFJ {
 
     public void initSensors() {
         if (sensors == null) {
-            sensors = new sensor[24];
-            for (int i = 0; i < 24; i++) {
+            sensors = new sensor[32];
+            for (int i = 0; i < 32; i++) {
                 sensors[i] = new sensor();
             }
         }
     }
 
-    public void setSensor(Integer index, Integer power, Integer signal, Integer state) {
+    public void setSensor(Integer index, Integer power, Integer signal, Integer state) {//*
 
         sensor ms = new sensor();
         ms.setMpower(power);

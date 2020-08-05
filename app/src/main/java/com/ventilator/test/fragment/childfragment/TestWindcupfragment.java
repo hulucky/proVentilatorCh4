@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.bumptech.glide.load.engine.Resource;
 import com.sensor.SensorData;
 import com.sensor.view.SensorView;
+import com.ventilator.Utils.SharedPrefrenceUtils;
 import com.ventilator.administrator.DATAbase.R;
 import com.ventilator.app.MyApp;
 import com.ventilator.test.TestActivity;
@@ -46,7 +47,15 @@ public class TestWindcupfragment extends Fragment {
             R.id.fb_test_13,
             R.id.fb_test_14,
             R.id.fb_test_15,
-            R.id.fb_test_16
+            R.id.fb_test_16,
+            R.id.fb_test_17,
+            R.id.fb_test_18,
+            R.id.fb_test_19,
+            R.id.fb_test_20,
+            R.id.fb_test_21,
+            R.id.fb_test_22,
+            R.id.fb_test_23,
+            R.id.fb_test_24
     })
     List<SensorView> sFb;
 
@@ -65,7 +74,16 @@ public class TestWindcupfragment extends Fragment {
             R.id.fs_testwindcup_13,
             R.id.fs_testwindcup_14,
             R.id.fs_testwindcup_15,
-            R.id.fs_testwindcup_16})
+            R.id.fs_testwindcup_16,
+            R.id.fs_testwindcup_17,
+            R.id.fs_testwindcup_18,
+            R.id.fs_testwindcup_19,
+            R.id.fs_testwindcup_20,
+            R.id.fs_testwindcup_21,
+            R.id.fs_testwindcup_22,
+            R.id.fs_testwindcup_23,
+            R.id.fs_testwindcup_24
+    })
     List<TextView> tFb;
 
 
@@ -84,6 +102,14 @@ public class TestWindcupfragment extends Fragment {
     LinearLayout linearLayoutfb3;
     @BindView(R.id.linearLayoutfb4)
     LinearLayout linearLayoutfb4;
+    @BindView(R.id.linearLayoutfb5)
+    LinearLayout linearLayoutfb5;
+    @BindView(R.id.linearLayoutfb6)
+    LinearLayout linearLayoutfb6;
+    @BindView(R.id.linear_tv5)
+    LinearLayout linearTv5;
+    @BindView(R.id.linear_tv6)
+    LinearLayout linearTv6;
 
     boolean showfb = true;
 
@@ -100,9 +126,29 @@ public class TestWindcupfragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        if (!SharedPrefrenceUtils.getCanShowEight(getContext())) {
+            linearLayoutfb5.setVisibility(View.GONE);
+            linearLayoutfb6.setVisibility(View.GONE);
+            linearTv5.setVisibility(View.GONE);
+            linearTv6.setVisibility(View.GONE);
+        }
 
     }
+
+
+    public void showEight() {
+        try {
+            if (showfb) {
+                linearLayoutfb5.setVisibility(View.VISIBLE);
+                linearLayoutfb6.setVisibility(View.VISIBLE);
+            }
+            linearTv5.setVisibility(View.VISIBLE);
+            linearTv6.setVisibility(View.VISIBLE);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public void SetWindCupState(SensorView msv, float mpower, float msignal, int minf) {
         SensorData svData = new SensorData();
@@ -133,13 +179,14 @@ public class TestWindcupfragment extends Fragment {
             e.printStackTrace();
         }
     }
+
     public void SetWindSpeedStr(Integer index, float mfs) {
         try {
             if (tFb != null) {
                 if (MyApp.getInstance().getSensorstateByIndex(index + 4) == 0) {
                     tFb.get(index - 1).setText("--");
                 } else {
-                    tFb.get(index - 1).setText(df4.format(mfs) );
+                    tFb.get(index - 1).setText(df4.format(mfs));
                 }
             }
         } catch (Exception e) {
@@ -149,17 +196,18 @@ public class TestWindcupfragment extends Fragment {
 
     public void SetPjfs(float mPjfs) {
         if (tvTestwindspeedPjfs != null) {
-            if (MyApp.getInstance().getAllSensorDisconnect(5, 20) != 0) {
+            if (MyApp.getInstance().getAllSensorDisconnect(5, 28) != 0) {
                 tvTestwindspeedPjfs.setText(df4.format(mPjfs) + " m/s");
             } else {
                 tvTestwindspeedPjfs.setText("-- m/s");
             }
         }
     }
+
     public void SetPjfsStr(String mPjfs) {
         if (tvTestwindspeedPjfs != null) {
 
-                tvTestwindspeedPjfs.setText((mPjfs) );
+            tvTestwindspeedPjfs.setText((mPjfs));
 
         }
     }
@@ -179,6 +227,8 @@ public class TestWindcupfragment extends Fragment {
             linearLayoutfb2.setVisibility(View.GONE);
             linearLayoutfb3.setVisibility(View.GONE);
             linearLayoutfb4.setVisibility(View.GONE);
+            linearLayoutfb5.setVisibility(View.GONE);
+            linearLayoutfb6.setVisibility(View.GONE);
         } else {
             showfb = true;
             imgFbshow.setBackgroundResource(R.drawable.fbon);
@@ -186,6 +236,8 @@ public class TestWindcupfragment extends Fragment {
             linearLayoutfb2.setVisibility(View.VISIBLE);
             linearLayoutfb3.setVisibility(View.VISIBLE);
             linearLayoutfb4.setVisibility(View.VISIBLE);
+            linearLayoutfb5.setVisibility(View.VISIBLE);
+            linearLayoutfb6.setVisibility(View.VISIBLE);
         }
     }
 

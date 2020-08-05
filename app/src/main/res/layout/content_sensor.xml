@@ -23,8 +23,8 @@
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:layout_marginLeft="10dp"
+            android:orientation="vertical"
             app:layout_constraintBottom_toTopOf="parent"
             app:layout_constraintEnd_toStartOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -57,19 +57,19 @@
                         android:id="@+id/wsd_sensor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:layout_marginTop="10dp"
                         android:background="@color/white"
                         app:CheckConnect="true"
                         app:CheckTime="5000"
                         app:DrawModel="variable"
-                        app:SensorType="WEN_SHI_DAQIYA" />
+                        app:SensorType="WEN_SHI_DAQIYA"
+                        app:TagText="温湿度大气压" />
 
                     <LinearLayout
                         android:layout_width="130dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
                         android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -77,65 +77,70 @@
                             android:layout_height="wrap_content">
 
                             <TextView
-                                android:text="温度： "
-                                style="@style/sensortext" />
+                                style="@style/sensortext"
+                                android:text="温度： " />
 
                             <TextView
                                 android:id="@+id/wd_sensor"
-                                android:text=" ℃"
-                                style="@style/sensorvalue" />
+                                style="@style/sensorvalue"
+                                android:text=" ℃" />
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content">
 
                             <TextView
-                                android:text="湿度： "
-                                style="@style/sensortext" />
+                                style="@style/sensortext"
+                                android:text="湿度： " />
 
                             <TextView
                                 android:id="@+id/sd_sensor"
-                                android:text=" %RH"
-                                style="@style/sensorvalue" />
+                                style="@style/sensorvalue"
+                                android:text=" %RH" />
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content">
 
                             <TextView
-                                android:text="大气压： "
-                                style="@style/sensortext" />
+                                style="@style/sensortext"
+                                android:text="大气压： " />
 
                             <TextView
                                 android:id="@+id/dqy_sensor"
-                                android:text=" hPa"
-                                style="@style/sensorvalue" />
+                                style="@style/sensorvalue"
+                                android:text=" hPa" />
                         </LinearLayout>
 
 
                     </LinearLayout>
+
                     <com.sensor.view.SensorView
                         android:id="@+id/fs_sensor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:layout_marginTop="10dp"
                         android:background="@color/white"
                         app:CheckConnect="true"
                         app:CheckTime="5000"
                         app:DrawModel="variable"
-                            app:SensorType="JI_SHI_QI_KAI_SHI" />
+                        app:SensorType="JI_SHI_QI_KAI_SHI"
+                        app:TagText="计时器" />
+
                     <com.sensor.view.SensorView
-                    android:id="@+id/sj_sensor"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@color/white"
-                    app:CheckConnect="true"
-                    app:CheckTime="5000"
-                    app:DrawModel="variable"
-                    app:SensorType="JI_SHI_QI_KAI_SHI" />
+                        android:id="@+id/sj_sensor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/white"
+                        app:CheckConnect="true"
+                        app:CheckTime="5000"
+                        app:DrawModel="variable"
+                        app:SensorType="JI_SHI_QI_KAI_SHI"
+                        app:TagText="计时器" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -170,13 +175,14 @@ android:layout_marginLeft="10dp"
                         app:CheckConnect="true"
                         app:CheckTime="5000"
                         app:DrawModel="variable"
-                        app:SensorType="YA_LI" />
+                        app:SensorType="YA_LI"
+                        app:TagText="压力" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="50dp"
                         android:layout_marginLeft="20dp"
+                        android:layout_marginTop="50dp"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -184,13 +190,13 @@ android:layout_marginLeft="10dp"
                             android:layout_height="wrap_content">
 
                             <TextView
-                                android:text="负压： "
-                                style="@style/sensortext" />
+                                style="@style/sensortext"
+                                android:text="负压： " />
 
                             <TextView
                                 android:id="@+id/tvjy_sensor"
-                                android:text=" Pa"
-                                style="@style/sensorvalue" />
+                                style="@style/sensorvalue"
+                                android:text=" Pa" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
@@ -212,19 +218,19 @@ android:layout_marginLeft="10dp"
                         android:id="@+id/cy_sensor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:layout_marginTop="10dp"
                         android:background="@color/white"
                         app:CheckConnect="true"
                         app:CheckTime="5000"
                         app:DrawModel="variable"
-                        app:SensorType="CHA_YA" />
+                        app:SensorType="CHA_YA"
+                        app:TagText="差压" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="50dp"
                         android:layout_marginLeft="20dp"
+                        android:layout_marginTop="50dp"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -232,13 +238,13 @@ android:layout_marginLeft="10dp"
                             android:layout_height="wrap_content">
 
                             <TextView
-                                android:text="差压： "
-                                style="@style/sensortext" />
+                                style="@style/sensortext"
+                                android:text="差压： " />
 
                             <TextView
                                 android:id="@+id/tvcy_sensor"
-                                android:text=" Pa"
-                                style="@style/sensorvalue" />
+                                style="@style/sensorvalue"
+                                android:text=" Pa" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
@@ -274,16 +280,18 @@ android:layout_marginLeft="10dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:background="@color/white"
+                        android:visibility="gone"
                         app:CheckConnect="true"
                         app:CheckTime="5000"
                         app:DrawModel="variable"
-                        app:SensorType="JIA_WAN" />
+                        app:SensorType="JIA_WAN"
+                        app:TagText="甲烷" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="50dp"
                         android:layout_marginLeft="20dp"
+                        android:layout_marginTop="50dp"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -291,19 +299,19 @@ android:layout_marginLeft="10dp"
                             android:layout_height="wrap_content">
 
                             <TextView
-                                android:text="甲烷浓度： "
+                                android:id="@+id/tv_ch4"
                                 style="@style/sensortext"
-                              />
+                                android:text="甲烷浓度： "
+                                android:visibility="gone" />
 
                             <TextView
                                 android:id="@+id/tvCH4_sensor"
+                                style="@style/sensorvalue"
                                 android:text=" %"
-                                style="@style/sensorvalue" />
+                                android:visibility="gone" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
-
-
 
 
             </LinearLayout>
@@ -334,21 +342,23 @@ android:layout_marginLeft="10dp"
                         android:id="@+id/gl1_sensor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:layout_marginTop="10dp"
                         android:background="@color/white"
                         app:CheckConnect="true"
                         app:CheckTime="5000"
                         app:DrawModel="variable"
-                        app:SensorType="GONG_LV_XIANG" />
+                        app:SensorType="GONG_LV_XIANG"
+                        app:TagText="功率箱" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
                             android:layout_marginLeft="20dp"
+                            android:layout_marginTop="20dp"
                             android:layout_weight="1"
                             android:orientation="vertical">
 
@@ -357,49 +367,52 @@ android:layout_marginLeft="10dp"
                                 android:layout_height="wrap_content">
 
                                 <TextView
-                                    android:text="AB线电压： "
-                                    style="@style/sensortext" />
+                                    style="@style/sensortext"
+                                    android:text="AB线电压： " />
 
                                 <TextView
                                     android:id="@+id/UAB1_sensor"
-                                    android:text=" V"
-                                    style="@style/sensorvalue" />
+                                    style="@style/sensorvalue"
+                                    android:text=" V" />
                             </LinearLayout>
+
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content">
 
                                 <TextView
-                                    android:text="BC线电压： "
-                                    style="@style/sensortext" />
+                                    style="@style/sensortext"
+                                    android:text="BC线电压： " />
 
                                 <TextView
                                     android:id="@+id/UBC1_sensor"
-                                    android:text=" V"
-                                    style="@style/sensorvalue" />
+                                    style="@style/sensorvalue"
+                                    android:text=" V" />
                             </LinearLayout>
+
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content">
 
                                 <TextView
-                                    android:text="CA线电压： "
-                                    style="@style/sensortext" />
+                                    style="@style/sensortext"
+                                    android:text="CA线电压： " />
 
                                 <TextView
                                     android:id="@+id/UCA1_sensor"
-                                    android:text=" V"
-                                    style="@style/sensorvalue" />
+                                    style="@style/sensorvalue"
+                                    android:text=" V" />
                             </LinearLayout>
 
 
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginTop="20dp"
                             android:layout_marginLeft="20dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_weight="1"
                             android:orientation="vertical">
 
                             <LinearLayout
@@ -407,49 +420,52 @@ android:layout_marginLeft="10dp"
                                 android:layout_height="wrap_content">
 
                                 <TextView
-                                    android:text="A相电流："
-                                    style="@style/sensortext" />
+                                    style="@style/sensortext"
+                                    android:text="A相电流：" />
 
                                 <TextView
                                     android:id="@+id/IA1_sensor"
-                                    android:text=" A"
-                                    style="@style/sensorvalue" />
+                                    style="@style/sensorvalue"
+                                    android:text=" A" />
                             </LinearLayout>
+
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content">
 
                                 <TextView
-                                    android:text="B相电流："
-                                    style="@style/sensortext" />
+                                    style="@style/sensortext"
+                                    android:text="B相电流：" />
 
                                 <TextView
                                     android:id="@+id/IB1_sensor"
-                                    android:text=" A"
-                                    style="@style/sensorvalue" />
+                                    style="@style/sensorvalue"
+                                    android:text=" A" />
                             </LinearLayout>
+
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content">
 
                                 <TextView
-                                    android:text="C相电流："
-                                    style="@style/sensortext" />
+                                    style="@style/sensortext"
+                                    android:text="C相电流：" />
 
                                 <TextView
                                     android:id="@+id/IC1_sensor"
-                                    android:text=" A"
-                                    style="@style/sensorvalue" />
+                                    style="@style/sensorvalue"
+                                    android:text=" A" />
                             </LinearLayout>
 
 
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
                             android:layout_marginTop="20dp"
                             android:layout_weight="1"
-                            android:layout_marginLeft="20dp"
                             android:orientation="vertical">
 
                             <LinearLayout
@@ -457,39 +473,41 @@ android:layout_marginLeft="10dp"
                                 android:layout_height="wrap_content">
 
                                 <TextView
-                                    android:text="有功功率： "
-                                    style="@style/sensortext" />
+                                    style="@style/sensortext"
+                                    android:text="有功功率： " />
 
                                 <TextView
                                     android:id="@+id/P1_sensor"
-                                    android:text=" kW"
-                                    style="@style/sensorvalue" />
+                                    style="@style/sensorvalue"
+                                    android:text=" kW" />
                             </LinearLayout>
+
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content">
 
                                 <TextView
-                                    android:text="视在功率： "
-                                    style="@style/sensortext" />
+                                    style="@style/sensortext"
+                                    android:text="视在功率： " />
 
                                 <TextView
                                     android:id="@+id/Q1_sensor"
-                                    android:text=" kVA"
-                                    style="@style/sensorvalue" />
+                                    style="@style/sensorvalue"
+                                    android:text=" kVA" />
                             </LinearLayout>
+
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content">
 
                                 <TextView
-                                    android:text="功率因数： "
-                                    style="@style/sensortext" />
+                                    style="@style/sensortext"
+                                    android:text="功率因数： " />
 
                                 <TextView
                                     android:id="@+id/cos1_sensor"
-                                    android:text=" "
-                                    style="@style/sensorvalue" />
+                                    style="@style/sensorvalue"
+                                    android:text=" " />
                             </LinearLayout>
 
 
@@ -524,166 +542,176 @@ android:layout_marginLeft="10dp"
                         android:id="@+id/gl2_sensor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:layout_marginTop="10dp"
                         android:background="@color/white"
                         app:CheckConnect="true"
                         app:CheckTime="5000"
                         app:DrawModel="variable"
-                        app:SensorType="GONG_LV_XIANG" />
+                        app:SensorType="GONG_LV_XIANG"
+                        app:TagText="功率箱" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
-                            <TextView
-                                android:text="AB线电压： "
-                                style="@style/sensortext" />
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
 
-                            <TextView
-                                android:id="@+id/UAB2_sensor"
-                                android:text=" V"
-                                style="@style/sensorvalue" />
+                                <TextView
+                                    style="@style/sensortext"
+                                    android:text="AB线电压： " />
+
+                                <TextView
+                                    android:id="@+id/UAB2_sensor"
+                                    style="@style/sensorvalue"
+                                    android:text=" V" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    style="@style/sensortext"
+                                    android:text="BC线电压： " />
+
+                                <TextView
+                                    android:id="@+id/UBC2_sensor"
+                                    style="@style/sensorvalue"
+                                    android:text=" V" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    style="@style/sensortext"
+                                    android:text="CA线电压： " />
+
+                                <TextView
+                                    android:id="@+id/UCA2_sensor"
+                                    style="@style/sensorvalue"
+                                    android:text=" V" />
+                            </LinearLayout>
+
+
                         </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:text="BC线电压： "
-                                style="@style/sensortext" />
-
-                            <TextView
-                                android:id="@+id/UBC2_sensor"
-                                android:text=" V"
-                                style="@style/sensorvalue" />
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:text="CA线电压： "
-                                style="@style/sensortext" />
-
-                            <TextView
-                                android:id="@+id/UCA2_sensor"
-                                android:text=" V"
-                                style="@style/sensorvalue" />
-                        </LinearLayout>
-
-
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="20dp"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:text="A相电流："
-                                style="@style/sensortext" />
-
-                            <TextView
-                                android:id="@+id/IA2_sensor"
-                                android:text=" A"
-                                style="@style/sensorvalue" />
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:text="B相电流："
-                                style="@style/sensortext" />
-
-                            <TextView
-                                android:id="@+id/IB2_sensor"
-                                android:text=" A"
-                                style="@style/sensorvalue" />
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:text="C相电流："
-                                style="@style/sensortext" />
-
-                            <TextView
-                                android:id="@+id/IC2_sensor"
-                                android:text=" A"
-                                style="@style/sensorvalue" />
-                        </LinearLayout>
-
-
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:layout_weight="1"
-                        android:layout_marginLeft="20dp"
-                        android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
-                            <TextView
-                                android:text="有功功率： "
-                                style="@style/sensortext" />
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
 
-                            <TextView
-                                android:id="@+id/P2_sensor"
-                                android:text=" kW"
-                                style="@style/sensorvalue" />
+                                <TextView
+                                    style="@style/sensortext"
+                                    android:text="A相电流：" />
+
+                                <TextView
+                                    android:id="@+id/IA2_sensor"
+                                    style="@style/sensorvalue"
+                                    android:text=" A" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    style="@style/sensortext"
+                                    android:text="B相电流：" />
+
+                                <TextView
+                                    android:id="@+id/IB2_sensor"
+                                    style="@style/sensorvalue"
+                                    android:text=" A" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    style="@style/sensortext"
+                                    android:text="C相电流：" />
+
+                                <TextView
+                                    android:id="@+id/IC2_sensor"
+                                    style="@style/sensorvalue"
+                                    android:text=" A" />
+                            </LinearLayout>
+
+
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
-                            <TextView
-                                android:text="视在功率： "
-                                style="@style/sensortext" />
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
 
-                            <TextView
-                                android:id="@+id/Q2_sensor"
-                                android:text=" kVA"
-                                style="@style/sensorvalue" />
+                                <TextView
+                                    style="@style/sensortext"
+                                    android:text="有功功率： " />
+
+                                <TextView
+                                    android:id="@+id/P2_sensor"
+                                    style="@style/sensorvalue"
+                                    android:text=" kW" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    style="@style/sensortext"
+                                    android:text="视在功率： " />
+
+                                <TextView
+                                    android:id="@+id/Q2_sensor"
+                                    style="@style/sensorvalue"
+                                    android:text=" kVA" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    style="@style/sensortext"
+                                    android:text="功率因数： " />
+
+                                <TextView
+                                    android:id="@+id/cos2_sensor"
+                                    style="@style/sensorvalue"
+                                    android:text=" " />
+                            </LinearLayout>
+
+
                         </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:text="功率因数： "
-                                style="@style/sensortext" />
-
-                            <TextView
-                                android:id="@+id/cos2_sensor"
-                                android:text=" "
-                                style="@style/sensorvalue" />
-                        </LinearLayout>
-
-
-                    </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -697,7 +725,7 @@ android:layout_marginLeft="10dp"
                 app:layout_constraintEnd_toStartOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
-
+                <!--前四个风杯图标-->
                 <LinearLayout
                     android:id="@+id/linearLayout3"
                     android:layout_width="match_parent"
@@ -709,21 +737,17 @@ android:layout_marginLeft="10dp"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <com.sensor.view.SensorView
-
                         android:id="@+id/fb_sensor_1"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-
-
                         android:background="@color/white"
-
-
                         app:CheckConnect="true"
                         app:CheckTime="5000"
                         app:DrawModel="variable"
-                        app:SensorType="FENG_BEI" />
+                        app:SensorType="FENG_BEI"
+                        app:TagText="风杯" />
 
                     <TextView
 
@@ -744,21 +768,17 @@ android:layout_marginLeft="10dp"
                         android:textSize="14sp" />
 
                     <com.sensor.view.SensorView
-
                         android:id="@+id/fb_sensor_2"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-
-
                         android:background="@color/white"
-
-
                         app:CheckConnect="true"
                         app:CheckTime="5000"
                         app:DrawModel="variable"
-                        app:SensorType="FENG_BEI" />
+                        app:SensorType="FENG_BEI"
+                        app:TagText="风杯" />
 
                     <TextView
 
@@ -785,15 +805,12 @@ android:layout_marginLeft="10dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-
-
                         android:background="@color/white"
-
-
                         app:CheckConnect="true"
                         app:CheckTime="5000"
                         app:DrawModel="variable"
-                        app:SensorType="FENG_BEI" />
+                        app:SensorType="FENG_BEI"
+                        app:TagText="风杯" />
 
                     <TextView
 
@@ -814,21 +831,17 @@ android:layout_marginLeft="10dp"
                         android:textSize="14sp" />
 
                     <com.sensor.view.SensorView
-
                         android:id="@+id/fb_sensor_4"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-
-
                         android:background="@color/white"
-
-
                         app:CheckConnect="true"
                         app:CheckTime="5000"
                         app:DrawModel="variable"
-                        app:SensorType="FENG_BEI" />
+                        app:SensorType="FENG_BEI"
+                        app:TagText="风杯" />
 
                     <TextView
 
@@ -850,8 +863,8 @@ android:layout_marginLeft="10dp"
 
                 </LinearLayout>
 
+                <!--前四个风杯数据-->
                 <LinearLayout
-
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -861,45 +874,44 @@ android:layout_marginLeft="10dp"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
-                        android:text="风速1： "
-                        style="@style/sensortext" />
+                        style="@style/sensortext"
+                        android:text="风速1： " />
 
                     <TextView
                         android:id="@+id/fs_sensor_1"
-                        android:text=" m/s"
-                        style="@style/sensorvalue" />
+                        style="@style/sensorvalue"
+                        android:text=" m/s" />
 
                     <TextView
-                        android:text="风速2： "
-                        style="@style/sensortext" />
+                        style="@style/sensortext"
+                        android:text="风速2： " />
 
                     <TextView
                         android:id="@+id/fs_sensor_2"
-                        android:text=" m/s"
-                        style="@style/sensorvalue" />
+                        style="@style/sensorvalue"
+                        android:text=" m/s" />
 
                     <TextView
-                        android:text="风速3： "
-                        style="@style/sensortext" />
+                        style="@style/sensortext"
+                        android:text="风速3： " />
 
                     <TextView
                         android:id="@+id/fs_sensor_3"
-                        android:text=" m/s"
-                        style="@style/sensorvalue" />
+                        style="@style/sensorvalue"
+                        android:text=" m/s" />
 
                     <TextView
-                        android:text="风速4： "
-                        style="@style/sensortext" />
+                        style="@style/sensortext"
+                        android:text="风速4： " />
 
                     <TextView
                         android:id="@+id/fs_sensor_4"
-                        android:text=" m/s"
-                        style="@style/sensorvalue" />
+                        style="@style/sensorvalue"
+                        android:text=" m/s" />
 
                 </LinearLayout>
 
                 <LinearLayout
-
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -910,21 +922,17 @@ android:layout_marginLeft="10dp"
 
 
                     <com.sensor.view.SensorView
-
                         android:id="@+id/fb_sensor_5"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-
-
                         android:background="@color/white"
-
-
                         app:CheckConnect="true"
                         app:CheckTime="5000"
                         app:DrawModel="variable"
-                        app:SensorType="FENG_BEI" />
+                        app:SensorType="FENG_BEI"
+                        app:TagText="风杯" />
 
                     <TextView
 
@@ -945,21 +953,17 @@ android:layout_marginLeft="10dp"
                         android:textSize="14sp" />
 
                     <com.sensor.view.SensorView
-
                         android:id="@+id/fb_sensor_6"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-
-
                         android:background="@color/white"
-
-
                         app:CheckConnect="true"
                         app:CheckTime="5000"
                         app:DrawModel="variable"
-                        app:SensorType="FENG_BEI" />
+                        app:SensorType="FENG_BEI"
+                        app:TagText="风杯" />
 
                     <TextView
 
@@ -980,21 +984,17 @@ android:layout_marginLeft="10dp"
                         android:textSize="14sp" />
 
                     <com.sensor.view.SensorView
-
                         android:id="@+id/fb_sensor_7"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-
-
                         android:background="@color/white"
-
-
                         app:CheckConnect="true"
                         app:CheckTime="5000"
                         app:DrawModel="variable"
-                        app:SensorType="FENG_BEI" />
+                        app:SensorType="FENG_BEI"
+                        app:TagText="风杯" />
 
                     <TextView
 
@@ -1015,21 +1015,17 @@ android:layout_marginLeft="10dp"
                         android:textSize="14sp" />
 
                     <com.sensor.view.SensorView
-
                         android:id="@+id/fb_sensor_8"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-
-
                         android:background="@color/white"
-
-
                         app:CheckConnect="true"
                         app:CheckTime="5000"
                         app:DrawModel="variable"
-                        app:SensorType="FENG_BEI" />
+                        app:SensorType="FENG_BEI"
+                        app:TagText="风杯" />
 
                     <TextView
 
@@ -1062,42 +1058,41 @@ android:layout_marginLeft="10dp"
 
 
                     <TextView
-                        android:text="风速5： "
-                        style="@style/sensortext" />
+                        style="@style/sensortext"
+                        android:text="风速5： " />
 
                     <TextView
                         android:id="@+id/fs_sensor_5"
-                        android:text=" m/s"
-                        style="@style/sensorvalue" />
+                        style="@style/sensorvalue"
+                        android:text=" m/s" />
 
                     <TextView
-                        android:text="风速6： "
-                        style="@style/sensortext" />
+                        style="@style/sensortext"
+                        android:text="风速6： " />
 
                     <TextView
                         android:id="@+id/fs_sensor_6"
-                        android:text=" m/s"
-                        style="@style/sensorvalue" />
+                        style="@style/sensorvalue"
+                        android:text=" m/s" />
 
                     <TextView
-                        android:text="风速7： "
-                        style="@style/sensortext" />
+                        style="@style/sensortext"
+                        android:text="风速7： " />
 
                     <TextView
                         android:id="@+id/fs_sensor_7"
-                        android:text=" m/s"
-                        style="@style/sensorvalue" />
+                        style="@style/sensorvalue"
+                        android:text=" m/s" />
 
                     <TextView
-                        android:text="风速8： "
-                        style="@style/sensortext" />
+                        style="@style/sensortext"
+                        android:text="风速8： " />
 
                     <TextView
                         android:id="@+id/fs_sensor_8"
-                        android:text=" m/s"
-                        style="@style/sensorvalue" />
+                        style="@style/sensorvalue"
+                        android:text=" m/s" />
                 </LinearLayout>
-
 
                 <LinearLayout
                     android:id="@+id/linearLayout5"
@@ -1111,21 +1106,17 @@ android:layout_marginLeft="10dp"
 
 
                     <com.sensor.view.SensorView
-
                         android:id="@+id/fb_sensor_9"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-
-
                         android:background="@color/white"
-
-
                         app:CheckConnect="true"
                         app:CheckTime="5000"
                         app:DrawModel="variable"
-                        app:SensorType="FENG_BEI" />
+                        app:SensorType="FENG_BEI"
+                        app:TagText="风杯" />
 
                     <TextView
 
@@ -1146,21 +1137,17 @@ android:layout_marginLeft="10dp"
                         android:textSize="14sp" />
 
                     <com.sensor.view.SensorView
-
                         android:id="@+id/fb_sensor_10"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-
-
                         android:background="@color/white"
-
-
                         app:CheckConnect="true"
                         app:CheckTime="5000"
                         app:DrawModel="variable"
-                        app:SensorType="FENG_BEI" />
+                        app:SensorType="FENG_BEI"
+                        app:TagText="风杯" />
 
                     <TextView
 
@@ -1181,21 +1168,17 @@ android:layout_marginLeft="10dp"
                         android:textSize="14sp" />
 
                     <com.sensor.view.SensorView
-
                         android:id="@+id/fb_sensor_11"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-
-
                         android:background="@color/white"
-
-
                         app:CheckConnect="true"
                         app:CheckTime="5000"
                         app:DrawModel="variable"
-                        app:SensorType="FENG_BEI" />
+                        app:SensorType="FENG_BEI"
+                        app:TagText="风杯" />
 
                     <TextView
 
@@ -1216,37 +1199,35 @@ android:layout_marginLeft="10dp"
                         android:textSize="14sp" />
 
                     <com.sensor.view.SensorView
-
                         android:id="@+id/fb_sensor_12"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-
-
                         android:background="@color/white"
-
-
                         app:CheckConnect="true"
                         app:CheckTime="5000"
                         app:DrawModel="variable"
-                        app:SensorType="FENG_BEI" /> <TextView
+                        app:SensorType="FENG_BEI"
+                        app:TagText="风杯" />
 
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_marginBottom="1dp"
-                    android:layout_marginRight="1dp"
-                    android:layout_marginTop="1dp"
-                    android:layout_weight="0.1"
-                    android:background="#c1d8fb"
+                    <TextView
+
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_weight="0.1"
+                        android:background="#c1d8fb"
 
 
-                    android:enabled="true"
-                    android:paddingBottom="@dimen/x5"
-                    android:paddingTop="@dimen/x5"
-                    android:text=" "
+                        android:enabled="true"
+                        android:paddingBottom="@dimen/x5"
+                        android:paddingTop="@dimen/x5"
+                        android:text=" "
 
-                    android:textSize="14sp" />
+                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -1260,40 +1241,40 @@ android:layout_marginLeft="10dp"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
-                        android:text="风速9： "
-                        style="@style/sensortext" />
+                        style="@style/sensortext"
+                        android:text="风速9： " />
 
                     <TextView
                         android:id="@+id/fs_sensor_9"
-                        android:text=" m/s"
-                        style="@style/sensorvalue" />
+                        style="@style/sensorvalue"
+                        android:text=" m/s" />
 
                     <TextView
-                        android:text="风速10： "
-                        style="@style/sensortext" />
+                        style="@style/sensortext"
+                        android:text="风速10： " />
 
                     <TextView
                         android:id="@+id/fs_sensor_10"
-                        android:text=" m/s"
-                        style="@style/sensorvalue" />
+                        style="@style/sensorvalue"
+                        android:text=" m/s" />
 
                     <TextView
-                        android:text="风速11： "
-                        style="@style/sensortext" />
+                        style="@style/sensortext"
+                        android:text="风速11： " />
 
                     <TextView
                         android:id="@+id/fs_sensor_11"
-                        android:text=" m/s"
-                        style="@style/sensorvalue" />
+                        style="@style/sensorvalue"
+                        android:text=" m/s" />
 
                     <TextView
-                        android:text="风速12： "
-                        style="@style/sensortext" />
+                        style="@style/sensortext"
+                        android:text="风速12： " />
 
                     <TextView
                         android:id="@+id/fs_sensor_12"
-                        android:text=" m/s"
-                        style="@style/sensorvalue" />
+                        style="@style/sensorvalue"
+                        android:text=" m/s" />
 
                 </LinearLayout>
 
@@ -1308,21 +1289,17 @@ android:layout_marginLeft="10dp"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <com.sensor.view.SensorView
-
                         android:id="@+id/fb_sensor_13"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-
-
                         android:background="@color/white"
-
-
                         app:CheckConnect="true"
                         app:CheckTime="5000"
                         app:DrawModel="variable"
-                        app:SensorType="FENG_BEI" />
+                        app:SensorType="FENG_BEI"
+                        app:TagText="风杯" />
 
                     <TextView
 
@@ -1343,21 +1320,17 @@ android:layout_marginLeft="10dp"
                         android:textSize="14sp" />
 
                     <com.sensor.view.SensorView
-
                         android:id="@+id/fb_sensor_14"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-
-
                         android:background="@color/white"
-
-
                         app:CheckConnect="true"
                         app:CheckTime="5000"
                         app:DrawModel="variable"
-                        app:SensorType="FENG_BEI" />
+                        app:SensorType="FENG_BEI"
+                        app:TagText="风杯" />
 
                     <TextView
 
@@ -1378,23 +1351,17 @@ android:layout_marginLeft="10dp"
                         android:textSize="14sp" />
 
                     <com.sensor.view.SensorView
-
-
                         android:id="@+id/fb_sensor_15"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-
-
                         android:background="@color/white"
-
-
                         app:CheckConnect="true"
                         app:CheckTime="5000"
-
                         app:DrawModel="variable"
-                        app:SensorType="FENG_BEI" />
+                        app:SensorType="FENG_BEI"
+                        app:TagText="风杯" />
 
                     <TextView
 
@@ -1415,38 +1382,35 @@ android:layout_marginLeft="10dp"
                         android:textSize="14sp" />
 
                     <com.sensor.view.SensorView
-
                         android:id="@+id/fb_sensor_16"
-
-
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-
-
                         android:background="@color/white"
-
                         app:CheckConnect="true"
                         app:CheckTime="5000"
                         app:DrawModel="variable"
-                        app:SensorType="FENG_BEI" /> <TextView
+                        app:SensorType="FENG_BEI"
+                        app:TagText="风杯" />
 
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_marginBottom="1dp"
-                    android:layout_marginRight="1dp"
-                    android:layout_marginTop="1dp"
-                    android:layout_weight="0.1"
-                    android:background="#c1d8fb"
+                    <TextView
+
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_weight="0.1"
+                        android:background="#c1d8fb"
 
 
-                    android:enabled="true"
-                    android:paddingBottom="@dimen/x5"
-                    android:paddingTop="@dimen/x5"
-                    android:text=" "
+                        android:enabled="true"
+                        android:paddingBottom="@dimen/x5"
+                        android:paddingTop="@dimen/x5"
+                        android:text=" "
 
-                    android:textSize="14sp" />
+                        android:textSize="14sp" />
 
                 </LinearLayout>
 
@@ -1461,43 +1425,418 @@ android:layout_marginLeft="10dp"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
-                        android:text="风速13： "
-                        style="@style/sensortext" />
+                        style="@style/sensortext"
+                        android:text="风速13： " />
 
                     <TextView
                         android:id="@+id/fs_sensor_13"
-                        android:text=" m/s"
-                        style="@style/sensorvalue" />
+                        style="@style/sensorvalue"
+                        android:text=" m/s" />
 
                     <TextView
-                        android:text="风速14： "
-                        style="@style/sensortext" />
+                        style="@style/sensortext"
+                        android:text="风速14： " />
 
                     <TextView
                         android:id="@+id/fs_sensor_14"
-                        android:text=" m/s"
-                        style="@style/sensorvalue" />
+                        style="@style/sensorvalue"
+                        android:text=" m/s" />
 
                     <TextView
-                        android:text="风速15： "
-                        style="@style/sensortext" />
+                        style="@style/sensortext"
+                        android:text="风速15： " />
 
                     <TextView
                         android:id="@+id/fs_sensor_15"
-                        android:text=" m/s"
-                        style="@style/sensorvalue" />
+                        style="@style/sensorvalue"
+                        android:text=" m/s" />
 
                     <TextView
-                        android:text="风速16： "
-                        style="@style/sensortext" />
+                        style="@style/sensortext"
+                        android:text="风速16： " />
 
                     <TextView
                         android:id="@+id/fs_sensor_16"
-                        android:text=" m/s"
-                        style="@style/sensorvalue" />
+                        style="@style/sensorvalue"
+                        android:text=" m/s" />
 
                 </LinearLayout>
 
+
+                <!--****************************************************************-->
+                <!--17-20风杯图标-->
+                <LinearLayout
+                    android:id="@+id/linearLayout7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <com.sensor.view.SensorView
+                        android:id="@+id/fb_sensor_17"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        app:CheckConnect="true"
+                        app:CheckTime="5000"
+                        app:DrawModel="variable"
+                        app:SensorType="FENG_BEI"
+                        app:TagText="风杯" />
+
+                    <TextView
+
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_weight="0.1"
+                        android:background="#c1d8fb"
+
+                        android:clickable="true"
+                        android:enabled="true"
+                        android:paddingBottom="@dimen/x5"
+                        android:paddingTop="@dimen/x5"
+                        android:text=" "
+
+                        android:textSize="14sp" />
+
+                    <com.sensor.view.SensorView
+                        android:id="@+id/fb_sensor_18"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        app:CheckConnect="true"
+                        app:CheckTime="5000"
+                        app:DrawModel="variable"
+                        app:SensorType="FENG_BEI"
+                        app:TagText="风杯" />
+
+                    <TextView
+
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_weight="0.1"
+                        android:background="#c1d8fb"
+
+                        android:clickable="true"
+                        android:enabled="true"
+                        android:paddingBottom="@dimen/x5"
+                        android:paddingTop="@dimen/x5"
+                        android:text=" "
+
+                        android:textSize="14sp" />
+
+                    <com.sensor.view.SensorView
+                        android:id="@+id/fb_sensor_19"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        app:CheckConnect="true"
+                        app:CheckTime="5000"
+                        app:DrawModel="variable"
+                        app:SensorType="FENG_BEI"
+                        app:TagText="风杯" />
+
+                    <TextView
+
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_weight="0.1"
+                        android:background="#c1d8fb"
+
+                        android:clickable="true"
+                        android:enabled="true"
+                        android:paddingBottom="@dimen/x5"
+                        android:paddingTop="@dimen/x5"
+                        android:text=" "
+
+                        android:textSize="14sp" />
+
+                    <com.sensor.view.SensorView
+                        android:id="@+id/fb_sensor_20"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        app:CheckConnect="true"
+                        app:CheckTime="5000"
+                        app:DrawModel="variable"
+                        app:SensorType="FENG_BEI"
+                        app:TagText="风杯" />
+
+                    <TextView
+
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_weight="0.1"
+                        android:background="#c1d8fb"
+
+
+                        android:enabled="true"
+                        android:paddingBottom="@dimen/x5"
+                        android:paddingTop="@dimen/x5"
+                        android:text=" "
+
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <!--17-20风杯数据-->
+                <LinearLayout
+                    android:id="@+id/llhu1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        style="@style/sensortext"
+                        android:text="风速17： " />
+
+                    <TextView
+                        android:id="@+id/fs_sensor_17"
+                        style="@style/sensorvalue"
+                        android:text=" m/s" />
+
+                    <TextView
+                        style="@style/sensortext"
+                        android:text="风速18： " />
+
+                    <TextView
+                        android:id="@+id/fs_sensor_18"
+                        style="@style/sensorvalue"
+                        android:text=" m/s" />
+
+                    <TextView
+                        style="@style/sensortext"
+                        android:text="风速19： " />
+
+                    <TextView
+                        android:id="@+id/fs_sensor_19"
+                        style="@style/sensorvalue"
+                        android:text=" m/s" />
+
+                    <TextView
+                        style="@style/sensortext"
+                        android:text="风速20： " />
+
+                    <TextView
+                        android:id="@+id/fs_sensor_20"
+                        style="@style/sensorvalue"
+                        android:text=" m/s" />
+
+                </LinearLayout>
+
+                <!--21-24风杯图标-->
+                <LinearLayout
+                    android:id="@+id/linearLayout8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.sensor.view.SensorView
+                        android:id="@+id/fb_sensor_21"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        app:CheckConnect="true"
+                        app:CheckTime="5000"
+                        app:DrawModel="variable"
+                        app:SensorType="FENG_BEI"
+                        app:TagText="风杯" />
+
+                    <TextView
+
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_weight="0.1"
+                        android:background="#c1d8fb"
+
+                        android:clickable="true"
+                        android:enabled="true"
+                        android:paddingBottom="@dimen/x5"
+                        android:paddingTop="@dimen/x5"
+                        android:text=" "
+
+                        android:textSize="14sp" />
+
+                    <com.sensor.view.SensorView
+                        android:id="@+id/fb_sensor_22"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        app:CheckConnect="true"
+                        app:CheckTime="5000"
+                        app:DrawModel="variable"
+                        app:SensorType="FENG_BEI"
+                        app:TagText="风杯" />
+
+                    <TextView
+
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_weight="0.1"
+                        android:background="#c1d8fb"
+
+                        android:clickable="true"
+                        android:enabled="true"
+                        android:paddingBottom="@dimen/x5"
+                        android:paddingTop="@dimen/x5"
+                        android:text=" "
+
+                        android:textSize="14sp" />
+
+                    <com.sensor.view.SensorView
+                        android:id="@+id/fb_sensor_23"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        app:CheckConnect="true"
+                        app:CheckTime="5000"
+                        app:DrawModel="variable"
+                        app:SensorType="FENG_BEI"
+                        app:TagText="风杯" />
+
+                    <TextView
+
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_weight="0.1"
+                        android:background="#c1d8fb"
+
+                        android:clickable="true"
+                        android:enabled="true"
+                        android:paddingBottom="@dimen/x5"
+                        android:paddingTop="@dimen/x5"
+                        android:text=" "
+
+                        android:textSize="14sp" />
+
+                    <com.sensor.view.SensorView
+                        android:id="@+id/fb_sensor_24"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        app:CheckConnect="true"
+                        app:CheckTime="5000"
+                        app:DrawModel="variable"
+                        app:SensorType="FENG_BEI"
+                        app:TagText="风杯" />
+
+                    <TextView
+
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_weight="0.1"
+                        android:background="#c1d8fb"
+
+
+                        android:enabled="true"
+                        android:paddingBottom="@dimen/x5"
+                        android:paddingTop="@dimen/x5"
+                        android:text=" "
+
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <!--21-24风杯数据-->
+                <LinearLayout
+                    android:id="@+id/llhu2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        style="@style/sensortext"
+                        android:text="风速21： " />
+
+                    <TextView
+                        android:id="@+id/fs_sensor_21"
+                        style="@style/sensorvalue"
+                        android:text=" m/s" />
+
+                    <TextView
+                        style="@style/sensortext"
+                        android:text="风速22： " />
+
+                    <TextView
+                        android:id="@+id/fs_sensor_22"
+                        style="@style/sensorvalue"
+                        android:text=" m/s" />
+
+                    <TextView
+                        style="@style/sensortext"
+                        android:text="风速23： " />
+
+                    <TextView
+                        android:id="@+id/fs_sensor_23"
+                        style="@style/sensorvalue"
+                        android:text=" m/s" />
+
+                    <TextView
+                        style="@style/sensortext"
+                        android:text="风速24： " />
+
+                    <TextView
+                        android:id="@+id/fs_sensor_24"
+                        style="@style/sensorvalue"
+                        android:text=" m/s" />
+
+                </LinearLayout>
+
+                <!--****************************************************************-->
 
             </LinearLayout>
 

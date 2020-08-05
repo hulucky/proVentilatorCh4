@@ -107,29 +107,30 @@ public class MyApp extends KyApp {
         mInstance = MyApp.this;
         CrashHandler crashHandler = CrashHandler.getInstance();
         crashHandler.init(this);
-        Bugly.init(getApplicationContext(), "287406b8a5", false);
-        sensorstate=new Integer[24];
-        for(int i=0;i<24;i++)
+        //72dfac47ee
+        Bugly.init(getApplicationContext(), "72dfac47ee", false);
+        sensorstate=new Integer[32];
+        for(int i=0;i<32;i++)
         {
             sensorstate[i]=0;
         }
         initQueue();
 
     }
-    public void SetSensorConnectStateFalse(Integer mindex)
+    public void SetSensorConnectStateFalse(Integer mindex)//*
     {
         sensorstate[mindex]=0;
     }
-    public void SetSensorConnectStateTrue(Integer mindex)
+    public void SetSensorConnectStateTrue(Integer mindex)//*
     {
         sensorstate[mindex]=1;
     }
 
-    public Integer getSensorstateByIndex(Integer mindex) {
+    public Integer getSensorstateByIndex(Integer mindex) {//*
         return sensorstate[mindex];
     }
 
-    public  Integer getAllSensorDisconnect(Integer findex,Integer eindex)
+    public  Integer getAllSensorDisconnect(Integer findex,Integer eindex)//*
     {
         Integer res=0;
         for (int i=findex;i<=eindex;i++)

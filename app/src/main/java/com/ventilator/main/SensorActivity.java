@@ -11,11 +11,13 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,7 +26,9 @@ import com.jaeger.library.StatusBarUtil;
 import com.sensor.SensorData;
 import com.sensor.view.SensorView;
 import com.ventilator.Tools.MyFunction;
+import com.ventilator.Utils.SharedPrefrenceUtils;
 import com.ventilator.administrator.DATAbase.R;
+import com.ventilator.app.MyApp;
 import com.ventilator.serialport.ComAssistant.SerialHelper;
 import com.ventilator.serialport.bean.ComBean;
 import com.ventilator.test.TestActivity;
@@ -43,8 +47,6 @@ import butterknife.ButterKnife;
 import es.dmoral.toasty.Toasty;
 
 public class SensorActivity extends AppCompatActivity {
-
-
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.wsd_sensor)
@@ -103,6 +105,8 @@ public class SensorActivity extends AppCompatActivity {
     TextView Q2Sensor;
     @BindView(R.id.cos2_sensor)
     TextView cos2Sensor;
+    @BindView(R.id.tv_ch4)
+    TextView tvCh41;
 
     @BindView(R.id.fs_sensor)
     SensorView zjfs;
@@ -112,6 +116,15 @@ public class SensorActivity extends AppCompatActivity {
     SensorView ch4Sensor;
     @BindView(R.id.tvCH4_sensor)
     TextView tvch4;
+    //未连接时一直隐藏
+    @BindView(R.id.linearLayout7)
+    LinearLayout linearLayout7;
+    @BindView(R.id.linearLayout8)
+    LinearLayout linearLayout8;
+    @BindView(R.id.llhu1)
+    LinearLayout llhu1;
+    @BindView(R.id.llhu2)
+    LinearLayout llhu2;
     @BindViews({R.id.fb_sensor_1,
             R.id.fb_sensor_2,
             R.id.fb_sensor_3,
@@ -127,8 +140,17 @@ public class SensorActivity extends AppCompatActivity {
             R.id.fb_sensor_13,
             R.id.fb_sensor_14,
             R.id.fb_sensor_15,
-            R.id.fb_sensor_16})
-    List<SensorView> fblist;
+            R.id.fb_sensor_16,
+            R.id.fb_sensor_17,
+            R.id.fb_sensor_18,
+            R.id.fb_sensor_19,
+            R.id.fb_sensor_20,
+            R.id.fb_sensor_21,
+            R.id.fb_sensor_22,
+            R.id.fb_sensor_23,
+            R.id.fb_sensor_24
+    })
+    List<SensorView> fblist;//sensorView集合
 
     @BindViews({R.id.fs_sensor_1,
             R.id.fs_sensor_2,
@@ -145,8 +167,17 @@ public class SensorActivity extends AppCompatActivity {
             R.id.fs_sensor_13,
             R.id.fs_sensor_14,
             R.id.fs_sensor_15,
-            R.id.fs_sensor_16})
-    List<TextView> fslist;
+            R.id.fs_sensor_16,
+            R.id.fs_sensor_17,
+            R.id.fs_sensor_18,
+            R.id.fs_sensor_19,
+            R.id.fs_sensor_20,
+            R.id.fs_sensor_21,
+            R.id.fs_sensor_22,
+            R.id.fs_sensor_23,
+            R.id.fs_sensor_24
+    })
+    List<TextView> fslist;//textView集合
 
 
     private boolean shuaXin;
@@ -154,7 +185,7 @@ public class SensorActivity extends AppCompatActivity {
     private static long pretime = 0;
 
 
-    public static volatile long[] IsTx = new long[24]; // 测试线程修改参数
+    public static volatile long[] IsTx = new long[32]; // 测试线程修改参数
     public static volatile long CaijiTime = 0;
     public static int TxDelay = 5;
     private float JyZero = 0f;
@@ -171,6 +202,7 @@ public class SensorActivity extends AppCompatActivity {
 
     SerialControl ComA;
     DispQueueThread DispQueue;
+    public static Context context;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -179,11 +211,11 @@ public class SensorActivity extends AppCompatActivity {
         // 隐藏状态栏
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         //保持屏幕常亮
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         this.setContentView(R.layout.activity_sensor);
+
         getWindow().setFlags(
                 WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
                 WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);
@@ -194,9 +226,11 @@ public class SensorActivity extends AppCompatActivity {
         mdata = new DataTFJ();
         mdata.initSensors();
         handler = new Handler();
-
-        mFsList = new float[16];
+        //mFsList  16个风杯的数据
+        mFsList = new float[24];
         shuaXin = true;
+
+        context = this;
 
         jiaolingdialog();
 
@@ -209,6 +243,7 @@ public class SensorActivity extends AppCompatActivity {
         ComA = new SerialControl();
         setControls();
         DispQueueStart();
+        ComA.setiDelay(10);  // 设置读取串口的时间间隔
         if (IsStart == false) {
             handler.postDelayed(runnable, 1000);
             IsStart = true;
@@ -221,6 +256,17 @@ public class SensorActivity extends AppCompatActivity {
         // DataType.DATA_OK_PARSE : 返回整的串口数据包
         // DataType.DATA_NO_PARSE : 返回不进行校验的数据，不按完整数据包返回。
 
+        if (!SharedPrefrenceUtils.getCanShowEight(this)) {
+            linearLayout7.setVisibility(View.GONE);
+            linearLayout8.setVisibility(View.GONE);
+            llhu1.setVisibility(View.GONE);
+            llhu2.setVisibility(View.GONE);
+        }
+        if (SharedPrefrenceUtils.getCanShowCh4(context)) {
+            ch4Sensor.setVisibility(View.VISIBLE);
+            tvCh41.setVisibility(View.VISIBLE);
+            tvch4.setVisibility(View.VISIBLE);
+        }
     }
 
 
@@ -280,8 +326,6 @@ public class SensorActivity extends AppCompatActivity {
                         runOnUiThread(new Runnable() {
                             public void run() {
                                 DispRecData(ComData);
-
-
                             }
                         });
                         try {
@@ -303,64 +347,43 @@ public class SensorActivity extends AppCompatActivity {
     }
 
     private void DispRecData(ComBean comRecData) {
-
         xianshi(shuaXin, comRecData);
     }
 
     // ----------------smilekun---------------------------------——显示线程中测试数据解析加显示
 
-    static void xianshi(boolean xianshi, ComBean ComRecData) {
-
+    void xianshi(boolean xianshi, ComBean ComRecData) {
         int msingal, mpower;
-
-
         if (System.currentTimeMillis() > pretime + 1000) {
             pretime = System.currentTimeMillis();
-
-
         }
-
         int Leixing = Math.abs((int) ComRecData.bRec[9]);
         // DecimalFormat df4 = new DecimalFormat("####00.00");
-
-
         switch (Leixing) {
             case 16: // 10 温度传感器
                 if (ComRecData.bRec.length == 30) {
-
-
                     String wendu = df4.format((float) MyFunction.byte2float(
                             ComRecData.bRec, 14));
-
                     mdata.setmWd(Float.parseFloat(wendu));
 //                    tvwdSensor.setText(wendu + "℃");
-
-
                     String Shidu = df4.format((float) MyFunction.byte2float(
                             ComRecData.bRec, 18));
                     mdata.setmSd(Float.parseFloat(Shidu));
 //                    tvsdSensor.setText(Shidu + "%RH");
-
                     String Dqy = df4.format((float) MyFunction.byteArrayToInt(
                             ComRecData.bRec, 22) / 100);
                     mdata.setmDqy(Float.parseFloat(Dqy));
 //                    tvdqySensor.setText(Dqy + "hPA");
-
-
                     msingal = ComRecData.bRec[28] < 0 ? 256 + ComRecData.bRec[28] : ComRecData.bRec[28];
                     mpower = MyFunction.twoBytesToInt(ComRecData.bRec, 26);
                     mdata.setSensor(0, mpower, msingal, 1);
-
 //                    testFragment.msensorfragment.SetSensor("温湿度", mpower, msingal, 1);
                     SetFiveOne(0);
                 }
                 break;
-
             case 80:// 风速
                 float mFs = 0.0f;
                 if (ComRecData.bRec.length == 20) {
-
-
                     float a = ((float) MyFunction.HexToInt(MyFunction.ByteArrToHex(
                             ComRecData.bRec, 14, 16)) / 100);
                     if (a > 0 || a < 50) {
@@ -372,10 +395,15 @@ public class SensorActivity extends AppCompatActivity {
                 } else if (mFs > 7) {
                     mFs = (float) (mFs - 0.5);
                 }
-
                 int fsindex = (int) ComRecData.bRec[10];
-
-
+                //判断当第17个及之后的传感器连上时，就显示最后两排
+                if (fsindex >= 17) {
+                    SharedPrefrenceUtils.setCanShowEight(context, true);
+                }
+                boolean canShowEight = SharedPrefrenceUtils.getCanShowEight(context);
+                if (canShowEight) {
+                    showEight.canShowChanged();
+                }
                 msingal = ComRecData.bRec[18] < 0 ? 256 + ComRecData.bRec[18] : ComRecData.bRec[18];
                 mpower = MyFunction.twoBytesToInt(ComRecData.bRec, 16);
                 if (fsindex > 0) {
@@ -384,21 +412,25 @@ public class SensorActivity extends AppCompatActivity {
                     mdata.setSensor(fsindex + 4, mpower, msingal, 1);
                     mFsList[fsindex - 1] = mFs;
                 }
-
-
                 SetFiveOne(fsindex - 1 + 5);
-
                 break;
             case 82://中继
                 if (ComRecData.bRec.length == 60)//风杯包
                 {
-                    int fszjindex = 0;
+                    int fszjindex = 0;//风速中继
                     if (ComRecData.bRec[13] == 2)//二号包9-16
                     {
                         fszjindex = 8;
                     } else if (ComRecData.bRec[13] == 1)//一号包1-8
                     {
                         fszjindex = 0;
+                    } else if (ComRecData.bRec[13] == 4) {//三号包17-24
+                        fszjindex = 16;
+                        SharedPrefrenceUtils.setCanShowEight(context, true);
+//                        Log.d("dfgodfgd", "ComRecData.bRec[13] == 4");
+                    }
+                    if (SharedPrefrenceUtils.getCanShowEight(context)) {
+                        showEight.canShowChanged();
                     }
                     for (int i = 0; i < 8; i++) {
                         mFs = 0.0f;
@@ -424,9 +456,10 @@ public class SensorActivity extends AppCompatActivity {
                     int mcjpower = MyFunction.twoBytesToInt(ComRecData.bRec, 54);
                     int mfspower = MyFunction.twoBytesToInt(ComRecData.bRec, 56);
                     int mzjsingal = ComRecData.bRec[58] < 0 ? 256 + ComRecData.bRec[58] : ComRecData.bRec[58];
-                    mdata.setSensor(21, mcjpower, mzjsingal, 1);
-                    mdata.setSensor(22, mfspower, mzjsingal, 1);
-
+                    mdata.setSensor(29, mcjpower, mzjsingal, 1);
+                    mdata.setSensor(30, mfspower, mzjsingal, 1);
+                    SetFiveOne(29);
+                    SetFiveOne(30);
                 } else if (ComRecData.bRec.length == 35)//中继温湿度
                 {
                     String wendu = df4.format((float) MyFunction.byte2float(
@@ -449,10 +482,10 @@ public class SensorActivity extends AppCompatActivity {
                         mdata.setSensor(0, mpower, msingal, 1);
                         SetFiveOne(0);
                     }
-                    mdata.setSensor(21, mcjpower, mzjsingal, 1);
-                    mdata.setSensor(22, mfspower, mzjsingal, 1);
-                    SetFiveOne(21);
-                    SetFiveOne(22);
+                    mdata.setSensor(29, mcjpower, mzjsingal, 1);
+                    mdata.setSensor(30, mfspower, mzjsingal, 1);
+                    SetFiveOne(29);
+                    SetFiveOne(30);
                 }
                 break;
             case 34: // 22 静压传感器
@@ -491,9 +524,7 @@ public class SensorActivity extends AppCompatActivity {
                     SetFiveOne(2);
                 }
                 break;
-
             case 128: // 80 功率传感器
-
                 // （Ua）： A相电压值。 实际值＝（Ua）／10000*（U0）*（UbB） V
                 // （Ub）： B相电压值。 实际值＝（Ub）／10000*（U0）*（UbB） V
                 // （UC）： C相电压值。 实际值＝（UC）／10000*（U0）*（UbB） V
@@ -502,11 +533,8 @@ public class SensorActivity extends AppCompatActivity {
                 // （IC）： C相电流值。 实际值＝（IC）／10000*（I0）*（IBB） A
                 // （P）： 总有功功率值。 实际值＝ ±（P）／10000 *3*（U0）*（I0）*（UbB）*（IBB） W
                 // （Q）： 总无功功率值。 实际值＝±（Q）／10000 *3*（U0）*（I0）*（UbB）*（IBB） Var
-
                 if (ComRecData.bRec.length == 36) {
                     float mDybb = 500f, mDlbb = 500f;
-
-
                     float Ua = ((float) MyFunction.twoByte2int(ComRecData.bRec, 14) / 10000) * mDybb;
                     float Ub = ((float) MyFunction.twoByte2int(ComRecData.bRec, 18) / 10000 * mDybb);
                     float Uc = ((float) MyFunction.twoByte2int(ComRecData.bRec, 22) / 10000 * mDybb);
@@ -517,15 +545,12 @@ public class SensorActivity extends AppCompatActivity {
                     float P = ((float) MyFunction.twoBytesToIntHave(
                             ComRecData.bRec[26], ComRecData.bRec[27])
                             / 10000000 * 3 * mDybb * mDlbb);
-
-
                     float Q = ((float) MyFunction.twoBytesToIntHave(
                             ComRecData.bRec[28], ComRecData.bRec[29])
                             / 10000000 * 3 * mDybb * mDlbb);
                     float S = 0f;
                     float Cos = ((float) MyFunction.twoByte2int_(ComRecData.bRec,
                             30) / 10000);
-
                     // 低电流电压高变比情况下的功率计算
                     // if (szgl == 0.0d)
                     if ((Ua / 1) <= 150) {
@@ -559,7 +584,6 @@ public class SensorActivity extends AppCompatActivity {
                     if (ComRecData.bRec[10] == 1) {
                         float u0 = (Ua + Ub + Uc) / 3;
                         float i0 = (Ia + Ib + Ic) / 3;
-
                         mdata.setUab(cs * Ua);
                         mdata.setUbc(cs * Ub);
                         mdata.setUca(cs * Uc);
@@ -569,7 +593,6 @@ public class SensorActivity extends AppCompatActivity {
                         mdata.setP1(P);
                         mdata.setQ1(Q);
                         mdata.setCos1(Cos);
-
 //                        UAB1Sensor.setText(df4.format(cs * Ua) + "V");
 //                        UBC1Sensor.setText(df4.format(cs * Ub) + "V");
 //                        UCA1Sensor.setText(df4.format(cs * Uc) + "V");
@@ -579,15 +602,12 @@ public class SensorActivity extends AppCompatActivity {
 //                        P1Sensor.setText(df4.format(P) + "kW");
 //                        Q1Sensor.setText(df4.format(Q) + "kVA");
 //                        cos1Sensor.setText(df5.format(Cos));
-
                         msingal = ComRecData.bRec[34] < 0 ? 256 + ComRecData.bRec[34] : ComRecData.bRec[34];
                         mpower = MyFunction.twoBytesToInt(ComRecData.bRec, 32);
                         mdata.setSensor(3, mpower, msingal, 1);
 //                        testFragment.msensorfragment.SetSensor("功率1", mpower, msingal, 1);
-
                         //   mwgglTextView.setText(df4.format(Q));
                         SetFiveOne(3);
-
                     } else if (ComRecData.bRec[10] == 2) {
                         float u1 = (Ua + Ub + Uc) / 3;
                         float i1 = (Ia + Ib + Ic) / 3;
@@ -622,9 +642,12 @@ public class SensorActivity extends AppCompatActivity {
             case 78:// B2 甲烷传感器
             case -89:// B2甲烷传感器
                 if (ComRecData.bRec.length == 33) {
-
+                    //允许显示甲烷
+                    SharedPrefrenceUtils.setCanShowCh4(context, true);
+                    ch4Sensor.setVisibility(View.VISIBLE);
+                    tvCh41.setVisibility(View.VISIBLE);
+                    tvch4.setVisibility(View.VISIBLE);
                     double ch4 = 0;
-
 //                    double SumCh4 = 0;
 //                    for (int i = 0; i < 5; i++) {
 //                        String jingya = df4.format((float) MyFunction.twoByte2int(
@@ -638,27 +661,44 @@ public class SensorActivity extends AppCompatActivity {
 ////                    mdata.setCh4(SumCh4 / 5);
                     String jingya = df4.format((float) MyFunction.twoByte2int(
                             ComRecData.bRec, 27));
-             //       int FuHAo = ComRecData.bRec[26] | 0x00;
+                    //       int FuHAo = ComRecData.bRec[26] | 0x00;
                     String chukouyaString;
                     chukouyaString = jingya;
 
                     ch4 = Float.parseFloat(chukouyaString);
-                    mdata.setCh4(ch4/100);
+                    mdata.setCh4(ch4 / 100);
 
 //                    tvcySensor.setText(df4.format(Cy - CyZero) + "Pa");
                     msingal = ComRecData.bRec[31] < 0 ? 256 + ComRecData.bRec[31] : ComRecData.bRec[31];
                     mpower = MyFunction.twoBytesToInt(ComRecData.bRec, 29);
-                    mdata.setSensor(23, mpower, msingal, 1);
+                    mdata.setSensor(31, mpower, msingal, 1);
 //                    SetSensorState(cySensor, mpower, msingal, 1);
 //                    testFragment.msensorfragment.SetSensor("差压", mpower, msingal, 1);
-                    SetFiveOne(23);
+                    SetFiveOne(31);
                 }
             default:
                 break;
         }
-
         // ShowData();
     }
+
+
+    public interface ShowEight {
+        void canShowChanged();
+    }
+
+    public ShowEight showEight = new ShowEight() {
+        @Override
+        public void canShowChanged() {
+            Log.i("dfgdfsasda", "==============setVisibility: View.VISIBLE");
+            //显示后两排
+            linearLayout7.setVisibility(View.VISIBLE);
+            linearLayout8.setVisibility(View.VISIBLE);
+            llhu1.setVisibility(View.VISIBLE);
+            llhu2.setVisibility(View.VISIBLE);
+        }
+    };
+
 
     Runnable runnable = new Runnable() {
         @Override
@@ -750,7 +790,7 @@ public class SensorActivity extends AppCompatActivity {
             }
             // fengsu
 
-            for (int i = 0; i < 16; i++) {
+            for (int i = 0; i < 24; i++) {
                 if (TimeBetween(IsTx[i + 5]) > TxDelay * 1000) {
 
                     fslist.get(i).setText("--");
@@ -765,16 +805,18 @@ public class SensorActivity extends AppCompatActivity {
                     }
                 }
             }
-            if (TimeBetween(IsTx[21]) < 1000 && ms[21] != null) {
-                SetSensor(zjsj, 21);
+            //中继
+            if (TimeBetween(IsTx[29]) < 1000 && ms[29] != null) {
+                SetSensor(zjsj, 29);
             }
-            if (TimeBetween(IsTx[22]) < 1000 && ms[22] != null) {
-                SetSensor(zjfs, 22);
+            if (TimeBetween(IsTx[30]) < 1000 && ms[30] != null) {
+                SetSensor(zjfs, 30);
             }
-            if (TimeBetween(IsTx[23]) < 1000 && ms[23] != null) {
-                SetSensor(ch4Sensor, 23);
+            //甲烷
+            if (TimeBetween(IsTx[31]) < 1000 && ms[31] != null) {
+                SetSensor(ch4Sensor, 31);
                 tvch4.setText(df4.format(mdata.getCh4()));
-            } else if ((TimeBetween(IsTx[23]) > TxDelay * 1000)) {
+            } else if ((TimeBetween(IsTx[31]) > TxDelay * 1000)) {
                 tvch4.setText("--");
             }
 
